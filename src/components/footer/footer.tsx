@@ -6,7 +6,7 @@ export function Footer() {
 	return (
 		<footer className="bg-nav-bg border-t border-nav-border">
 			<Container>
-				<div className="flex flex-col items-center lg:flex-row lg:items-center lg:justify-between gap-4 pt-8 pb-8 lg:py-8">
+				<div className="flex flex-col items-center lg:flex-row lg:items-center lg:justify-between gap-4 py-5 lg:py-6">
 					<p className="font-body font-normal text-sm leading-[1.6] text-text-primary">
 						&copy; 2026 Cognito Education. All rights reserved.
 					</p>

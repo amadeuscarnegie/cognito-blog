@@ -17,18 +17,18 @@ export function FooterCTA() {
 
 	return (
 		<section ref={sectionRef} className="relative isolate">
-			{/* ===== MOBILE LAYOUT ===== */}
+			{/* ===== MOBILE / TABLET LAYOUT ===== */}
 			<div className="lg:hidden">
 				{/* Card in normal flow, z-10 so it sits above the overlapping image */}
 				<Container className="relative z-10">
 					<CTACard />
 				</Container>
-				{/* Mobile battle image sits below the card, overlapped by negative margin */}
+				{/* Battle image: 2:1 aspect, 100% width, min-height 360px, -80px overlap */}
 				<div className="-mt-20">
 					<img
 						src="/assets/blog-cta-battle-mobile.jpg"
 						alt=""
-						className="w-full h-auto object-cover"
+						className="w-full min-h-[360px] object-cover aspect-[2/1]"
 						aria-hidden="true"
 					/>
 				</div>

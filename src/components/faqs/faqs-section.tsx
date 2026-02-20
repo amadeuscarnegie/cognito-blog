@@ -9,11 +9,11 @@ import { faqs } from "@/lib/mock-data";
 
 export function FAQsSection() {
 	return (
-		<section className="hidden lg:block pt-16 pb-24">
+		<section className="py-10 lg:pt-16 lg:pb-24">
 			<Container>
-				<div className="flex gap-10">
-					{/* Left - Sticky */}
-					<div className="sticky top-[76px] self-start max-w-[400px] flex flex-col gap-4 pt-16">
+				<div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
+					{/* Left */}
+					<div className="max-w-full lg:max-w-[400px] flex flex-col gap-4 lg:pt-16">
 						<SectionLabel>Frequently asked questions</SectionLabel>
 						<SectionHeading>Got questions? We've got answers</SectionHeading>
 						<SectionDescription>
@@ -27,7 +27,7 @@ export function FAQsSection() {
 					</div>
 
 					{/* Right - Accordion */}
-					<div className="flex-1 pt-16 max-w-[800px]">
+					<div className="flex-1 lg:pt-16 lg:max-w-[800px]">
 						<Accordion items={faqs} />
 					</div>
 				</div>
