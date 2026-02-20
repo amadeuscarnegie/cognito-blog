@@ -122,12 +122,10 @@ function ColumnGroup({ columns }: { columns: FooterColumn[] }) {
 	);
 }
 
-export function FooterColumns() {
-	return (
-		<div className="flex flex-col gap-10">
-			<ColumnGroup columns={mainColumns} />
-			<div className="h-px bg-footer-text/10" />
-			<ColumnGroup columns={courseColumns} />
-		</div>
-	);
+export function FooterMainColumns() {
+	return <ColumnGroup columns={mainColumns} />;
+}
+
+export function FooterCourseColumns() {
+	return <ColumnGroup columns={courseColumns} />;
 }

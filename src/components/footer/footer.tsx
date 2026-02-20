@@ -2,7 +2,7 @@
 
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
-import { FooterColumns } from "./footer-links";
+import { FooterMainColumns, FooterCourseColumns } from "./footer-links";
 import { FooterSocial } from "./footer-social";
 
 const languages = ["English", "Spanish", "French", "German", "Portuguese"];
@@ -50,18 +50,11 @@ function LanguageSelector() {
 export function Footer() {
 	return (
 		<footer className="p-5">
-			<div className="relative mx-auto rounded-2xl bg-footer-bg px-6 py-10 lg:px-12 lg:py-12 overflow-hidden">
-				{/* Brand-building artwork — bottom-left, desktop only */}
-				<img
-					src="/assets/Brand-building.png"
-					alt=""
-					aria-hidden="true"
-					className="hidden lg:block absolute left-0 bottom-0 w-[260px] opacity-90 pointer-events-none"
-				/>
-
-				<div className="relative flex flex-col gap-10 lg:flex-row lg:gap-16">
+			<div className="mx-auto rounded-2xl bg-footer-bg px-6 py-10 lg:px-12 lg:py-12 overflow-hidden">
+				{/* Top section: brand + main link columns */}
+				<div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
 					{/* Brand column */}
-					<div className="flex flex-col gap-5 lg:max-w-[280px] shrink-0">
+					<div className="flex flex-col gap-5 lg:w-[280px] shrink-0">
 						<div className="flex items-center gap-2">
 							<img
 								src="/assets/Logo.svg"
@@ -83,9 +76,30 @@ export function Footer() {
 						<LanguageSelector />
 					</div>
 
-					{/* Link columns */}
+					{/* Main link columns */}
 					<div className="flex-1">
-						<FooterColumns />
+						<FooterMainColumns />
+					</div>
+				</div>
+
+				{/* Divider */}
+				<div className="my-10 h-px bg-footer-text/10" />
+
+				{/* Bottom section: artwork + course columns */}
+				<div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
+					{/* Artwork in the brand column space */}
+					<div className="hidden lg:flex lg:w-[280px] shrink-0 items-end">
+						<img
+							src="/assets/Brand-building.png"
+							alt=""
+							aria-hidden="true"
+							className="w-[220px] opacity-90"
+						/>
+					</div>
+
+					{/* Course columns */}
+					<div className="flex-1">
+						<FooterCourseColumns />
 					</div>
 				</div>
 			</div>
