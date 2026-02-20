@@ -16,7 +16,7 @@ export function FooterCTA() {
 	const cardY = useTransform(scrollYProgress, [0, 1], ["-20px", "20px"]);
 
 	return (
-		<section ref={sectionRef} className="relative isolate border-0">
+		<section ref={sectionRef} className="relative isolate">
 			{/* ===== MOBILE / TABLET LAYOUT ===== */}
 			<div className="lg:hidden">
 				{/* Card in normal flow, z-10 so it sits above the overlapping image */}
@@ -24,22 +24,22 @@ export function FooterCTA() {
 					<CTACard />
 				</Container>
 				{/* Battle image: 2:1 aspect, 100% width, min-height 360px, -80px overlap */}
-				<div className="-mt-20 border-0">
+				<div className="-mt-20 overflow-hidden">
 					<img
 						src="/assets/blog-cta-battle-mobile.jpg"
 						alt=""
-						className="w-full border-0 block"
+						className="w-full block scale-[1.005]"
 						aria-hidden="true"
 					/>
 				</div>
 			</div>
 
 			{/* ===== DESKTOP LAYOUT ===== */}
-			<div className="hidden lg:block relative w-full border-0">
+			<div className="hidden lg:block relative w-full overflow-hidden">
 				<img
 					src="/assets/blog-cta-battle-desktop.jpg"
 					alt=""
-					className="w-full h-auto border-0 block"
+					className="w-full h-auto block scale-[1.005]"
 					aria-hidden="true"
 				/>
 				{/* CTA Card — absolutely positioned, centered on the illustration */}
