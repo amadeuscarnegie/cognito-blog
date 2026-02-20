@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { SectionLabel } from "@/components/ui/section-label";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -13,7 +14,15 @@ export function FAQsSection() {
 			<Container>
 				<div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
 					{/* Left */}
-					<div className="max-w-full lg:max-w-[400px] flex flex-col gap-4 lg:pt-16">
+					<div className="max-w-full lg:max-w-[400px] flex flex-col gap-4">
+						<Image
+							src="/assets/avatar-sherlock.svg"
+							alt=""
+							width={80}
+							height={80}
+							className="w-[60px] h-[60px] lg:w-[80px] lg:h-[80px]"
+							aria-hidden="true"
+						/>
 						<SectionLabel>Frequently asked questions</SectionLabel>
 						<SectionHeading>Got questions? We've got answers</SectionHeading>
 						<SectionDescription>
@@ -27,7 +36,7 @@ export function FAQsSection() {
 					</div>
 
 					{/* Right - Accordion */}
-					<div className="flex-1 lg:pt-16 lg:max-w-[800px]">
+					<div className="flex-1 lg:max-w-[800px]">
 						<Accordion items={faqs} />
 					</div>
 				</div>
