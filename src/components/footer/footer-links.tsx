@@ -7,7 +7,7 @@ export function FooterLinks() {
 				<a
 					key={link.label}
 					href={link.href}
-					className="font-body font-normal text-sm leading-[1.6] text-footer-text/70 hover:text-footer-text transition-colors"
+					className="font-body font-normal text-sm leading-[1.6] text-footer-text hover:text-white transition-colors"
 				>
 					{link.label}
 				</a>
