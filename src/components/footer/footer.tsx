@@ -50,8 +50,16 @@ function LanguageSelector() {
 export function Footer() {
 	return (
 		<footer className="p-5">
-			<div className="mx-auto rounded-2xl bg-footer-bg px-6 py-10 lg:px-12 lg:py-12">
-				<div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
+			<div className="relative mx-auto rounded-2xl bg-footer-bg px-6 py-10 lg:px-12 lg:py-12 overflow-hidden">
+				{/* Brand-building artwork — bottom-left, desktop only */}
+				<img
+					src="/assets/Brand-building.png"
+					alt=""
+					aria-hidden="true"
+					className="hidden lg:block absolute left-0 bottom-0 w-[260px] opacity-90 pointer-events-none"
+				/>
+
+				<div className="relative flex flex-col gap-10 lg:flex-row lg:gap-16">
 					{/* Brand column */}
 					<div className="flex flex-col gap-5 lg:max-w-[280px] shrink-0">
 						<div className="flex items-center gap-2">

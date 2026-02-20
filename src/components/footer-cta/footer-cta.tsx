@@ -28,7 +28,7 @@ export function FooterCTA() {
 					<img
 						src="/assets/blog-cta-battle-mobile.jpg"
 						alt=""
-						className="w-full min-h-[360px] object-cover aspect-[2/1]"
+						className="w-full border-0 block"
 						aria-hidden="true"
 					/>
 				</div>
@@ -39,7 +39,7 @@ export function FooterCTA() {
 				<img
 					src="/assets/blog-cta-battle-desktop.jpg"
 					alt=""
-					className="w-full h-auto object-cover"
+					className="w-full h-auto border-0 block"
 					aria-hidden="true"
 				/>
 				{/* CTA Card — absolutely positioned, centered on the illustration */}
