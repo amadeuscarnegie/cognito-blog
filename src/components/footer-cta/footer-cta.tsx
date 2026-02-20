@@ -17,18 +17,8 @@ export function FooterCTA() {
 
 	return (
 		<section ref={sectionRef} className="relative isolate">
-			{/* CTA Card — moves with parallax */}
-			<Container>
-				<motion.div
-					style={{ y: cardY }}
-					className="relative z-10 -mb-72 lg:-mb-[450px]"
-				>
-					<CTACard />
-				</motion.div>
-			</Container>
-
-			{/* Background Illustration — static */}
-			<div className="relative z-0 w-full">
+			{/* Background Illustration — full width, acts as sizing parent */}
+			<div className="relative w-full">
 				{/* Desktop */}
 				<img
 					src="/assets/blog-cta-battle-desktop.jpg"
@@ -43,6 +33,15 @@ export function FooterCTA() {
 					className="lg:hidden w-full h-auto object-cover"
 					aria-hidden="true"
 				/>
+
+				{/* CTA Card — absolutely positioned, centered on the illustration */}
+				<div className="absolute inset-0 flex items-center justify-center z-10">
+					<Container>
+						<motion.div style={{ y: cardY }}>
+							<CTACard />
+						</motion.div>
+					</Container>
+				</div>
 			</div>
 		</section>
 	);
