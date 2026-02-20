@@ -40,6 +40,9 @@ const mainColumns: FooterColumn[] = [
 			{ label: "Pricing", href: "/pricing" },
 			{ label: "Careers", href: "/careers" },
 			{ label: "Contact", href: "/contact" },
+			{ label: "Terms", href: "/terms" },
+			{ label: "Privacy", href: "/privacy" },
+			{ label: "Cookies", href: "/cookies" },
 		],
 	},
 ];
@@ -98,7 +101,7 @@ function ColumnGroup({ columns }: { columns: FooterColumn[] }) {
 		<div className="grid grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-12">
 			{columns.map((col) => (
 				<div key={col.title}>
-					<h3 className="font-body text-xs font-bold uppercase tracking-wider text-footer-text mb-4">
+					<h3 className="font-body text-xs font-bold uppercase tracking-wider text-white mb-4">
 						{col.title}
 					</h3>
 					<ul className="flex flex-col gap-2.5">
@@ -126,21 +129,5 @@ export function FooterColumns() {
 			<div className="h-px bg-footer-text/10" />
 			<ColumnGroup columns={courseColumns} />
 		</div>
-	);
-}
-
-export function FooterLegal() {
-	return (
-		<nav className="flex items-center gap-5">
-			{["Terms", "Privacy", "Cookies"].map((label) => (
-				<a
-					key={label}
-					href={`/${label.toLowerCase()}`}
-					className="font-body text-sm text-footer-text hover:text-white transition-colors"
-				>
-					{label}
-				</a>
-			))}
-		</nav>
 	);
 }

@@ -1,11 +1,56 @@
-import { FooterColumns, FooterLegal } from "./footer-links";
+"use client";
+
+import { ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { FooterColumns } from "./footer-links";
 import { FooterSocial } from "./footer-social";
+
+const languages = ["English", "Spanish", "French", "German", "Portuguese"];
+
+function LanguageSelector() {
+	const [open, setOpen] = useState(false);
+	const [selected, setSelected] = useState("English");
+
+	return (
+		<div className="relative">
+			<button
+				type="button"
+				onClick={() => setOpen(!open)}
+				className="flex items-center gap-2 rounded-lg border border-footer-text/20 px-3 py-1.5 text-sm text-footer-text hover:border-footer-text/40 transition-colors cursor-pointer"
+			>
+				{selected}
+				<ChevronDown className="h-3.5 w-3.5" />
+			</button>
+			{open && (
+				<ul className="absolute bottom-full left-0 mb-1 rounded-lg border border-footer-text/20 bg-footer-bg py-1 shadow-lg">
+					{languages.map((lang) => (
+						<li key={lang}>
+							<button
+								type="button"
+								onClick={() => {
+									setSelected(lang);
+									setOpen(false);
+								}}
+								className={`w-full px-4 py-1.5 text-left text-sm transition-colors cursor-pointer ${
+									lang === selected
+										? "text-white"
+										: "text-footer-text hover:text-white"
+								}`}
+							>
+								{lang}
+							</button>
+						</li>
+					))}
+				</ul>
+			)}
+		</div>
+	);
+}
 
 export function Footer() {
 	return (
 		<footer className="p-5">
-			<div className="mx-auto rounded-2xl bg-footer-bg px-6 py-10 lg:px-12 lg:py-14">
-				{/* Top: brand + link columns */}
+			<div className="mx-auto rounded-2xl bg-footer-bg px-6 py-10 lg:px-12 lg:py-12">
 				<div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
 					{/* Brand column */}
 					<div className="flex flex-col gap-5 lg:max-w-[280px] shrink-0">
@@ -15,7 +60,7 @@ export function Footer() {
 								alt="Cognito"
 								className="w-8 h-8 brightness-0 invert"
 							/>
-							<span className="font-body font-bold text-lg tracking-wide text-footer-text uppercase">
+							<span className="font-body font-bold text-lg tracking-wide text-white uppercase">
 								Cognito
 							</span>
 						</div>
@@ -23,21 +68,17 @@ export function Footer() {
 							Empowering students to achieve their academic goals with expert-designed
 							courses and comprehensive learning resources.
 						</p>
+						<p className="font-body text-xs text-footer-text/60">
+							&copy; 2025 Cognito. All rights reserved.
+						</p>
 						<FooterSocial />
+						<LanguageSelector />
 					</div>
 
 					{/* Link columns */}
 					<div className="flex-1">
 						<FooterColumns />
 					</div>
-				</div>
-
-				{/* Bottom bar */}
-				<div className="mt-10 border-t border-footer-text/10 pt-6 flex flex-col items-center gap-3 lg:flex-row lg:justify-between">
-					<p className="font-body text-sm text-footer-text">
-						&copy; 2025 Cognito. All rights reserved.
-					</p>
-					<FooterLegal />
 				</div>
 			</div>
 		</footer>
