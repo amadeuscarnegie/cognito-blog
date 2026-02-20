@@ -31,7 +31,7 @@ export function BlogHero({
 						<h1 className="font-heading font-semibold text-[28px] lg:text-5xl leading-[1.15] tracking-[-0.005em] text-text-primary">
 							{currentTheme.name}
 						</h1>
-						<p className="font-body font-normal text-sm leading-[1.6] text-text-secondary">
+						<p className="font-body font-normal text-sm leading-[1.6] text-text-secondary line-clamp-1 lg:line-clamp-none">
 							{currentTheme.description}
 						</p>
 					</div>

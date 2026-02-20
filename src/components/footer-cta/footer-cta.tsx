@@ -24,7 +24,7 @@ export function FooterCTA() {
 					<CTACard />
 				</Container>
 				{/* Battle image: 2:1 aspect, 100% width, min-height 360px, -80px overlap */}
-				<div className="-mt-20 overflow-hidden aspect-[2/1] min-h-[360px]">
+				<div className="-mt-20 overflow-hidden aspect-[2/1] min-h-[360px] max-w-full">
 					<img
 						src="/assets/blog-cta-battle-mobile.jpg"
 						alt=""

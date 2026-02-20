@@ -13,7 +13,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={`${nunito.variable} ${stratford.variable}`}>
+		<html lang="en" className={`${nunito.variable} ${stratford.variable} overflow-x-hidden`}>
 			<body className="overflow-x-hidden">{children}</body>
 		</html>
 	);
