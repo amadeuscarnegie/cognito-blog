@@ -35,15 +35,17 @@ export function FooterCTA() {
 			</div>
 
 			{/* ===== DESKTOP LAYOUT ===== */}
-			<div className="hidden lg:block relative w-full overflow-hidden">
-				<img
-					src="/assets/blog-cta-battle-desktop.jpg"
-					alt=""
-					className="w-full h-auto block scale-[1.005]"
-					aria-hidden="true"
-				/>
+			<div className="hidden lg:block relative w-full">
+				<div className="overflow-hidden">
+					<img
+						src="/assets/blog-cta-battle-desktop.jpg"
+						alt=""
+						className="w-full h-auto block scale-[1.005]"
+						aria-hidden="true"
+					/>
+				</div>
 				{/* CTA Card — absolutely positioned, centered on the illustration */}
-				<div className="absolute inset-0 flex items-start justify-center pt-[15%] z-10">
+				<div className="absolute inset-x-0 top-0 bottom-0 flex items-start justify-center pt-[2%] z-10">
 					<Container>
 						<motion.div style={{ y: cardY }}>
 							<CTACard />
