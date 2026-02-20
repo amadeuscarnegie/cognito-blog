@@ -5,6 +5,8 @@ export interface Article {
 	theme: string;
 	readingTime: number;
 	thumbnailUrl: string;
+	illustrationUrl?: string;
+	thumbnailBg?: string;
 }
 
 export interface Theme {

@@ -22,7 +22,7 @@ export function HeroIllustration({ themeSlug }: HeroIllustrationProps) {
 				alt="Cognito characters reading and studying"
 				width={300}
 				height={112}
-				className="max-w-full max-h-full h-auto object-contain object-bottom"
+				className="w-full h-full object-contain object-bottom"
 				priority
 			/>
 		</div>

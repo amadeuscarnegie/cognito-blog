@@ -30,7 +30,7 @@ export function SubNav({ isOpen, onClose }: SubNavProps) {
 	return (
 		<div
 			ref={ref}
-			className="absolute top-full left-0 mt-2 w-[420px] bg-white rounded-lg shadow-xl border border-nav-border overflow-hidden z-50"
+			className="absolute top-full left-0 mt-2 w-[calc(100vw-2rem)] sm:w-[420px] bg-white rounded-lg shadow-xl border border-nav-border overflow-hidden z-50"
 			style={{ boxShadow: "0 20px 60px rgba(11,60,97,0.15)" }}
 		>
 			<SubNavHeader onBack={onClose} breadcrumb="Find my course" />

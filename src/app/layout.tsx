@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className={`${nunito.variable} ${stratford.variable}`}>
-			<body>{children}</body>
+			<body className="overflow-x-hidden">{children}</body>
 		</html>
 	);
 }

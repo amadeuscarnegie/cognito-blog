@@ -15,6 +15,8 @@ export function ArticleCard({ article }: ArticleCardProps) {
 		>
 			<CardImage
 				src={article.thumbnailUrl}
+				illustrationUrl={article.illustrationUrl}
+				bgColor={article.thumbnailBg}
 				alt={article.title}
 				className="w-[100px] h-[100px] lg:w-full lg:h-auto"
 			/>

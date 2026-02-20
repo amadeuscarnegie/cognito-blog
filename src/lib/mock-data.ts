@@ -41,6 +41,8 @@ export const articles: Article[] = [
 		theme: "Study tips",
 		readingTime: 5,
 		thumbnailUrl: "/assets/Thumbnail-variant-1.png",
+		illustrationUrl: "/assets/thumbnails/fox.png",
+		thumbnailBg: "#fef3e2",
 	},
 	{
 		id: "2",
@@ -49,6 +51,8 @@ export const articles: Article[] = [
 		theme: "Science",
 		readingTime: 7,
 		thumbnailUrl: "/assets/Thumbnail-variant-2.png",
+		illustrationUrl: "/assets/thumbnails/lungs.png",
+		thumbnailBg: "#fce4ec",
 	},
 	{
 		id: "3",
@@ -57,6 +61,8 @@ export const articles: Article[] = [
 		theme: "Study tips",
 		readingTime: 4,
 		thumbnailUrl: "/assets/Thumbnail-variant-1.png",
+		illustrationUrl: "/assets/thumbnails/cyan-dice.png",
+		thumbnailBg: "#e0f2f1",
 	},
 	{
 		id: "4",
@@ -65,6 +71,8 @@ export const articles: Article[] = [
 		theme: "Maths",
 		readingTime: 6,
 		thumbnailUrl: "/assets/Thumbnail-variant-2.png",
+		illustrationUrl: "/assets/thumbnails/disc-brake.png",
+		thumbnailBg: "#fff3e0",
 	},
 	{
 		id: "5",
@@ -73,6 +81,8 @@ export const articles: Article[] = [
 		theme: "Wellbeing",
 		readingTime: 5,
 		thumbnailUrl: "/assets/Thumbnail-variant-1.png",
+		illustrationUrl: "/assets/thumbnails/labrador.png",
+		thumbnailBg: "#fef9e7",
 	},
 	{
 		id: "6",
@@ -81,6 +91,8 @@ export const articles: Article[] = [
 		theme: "Science",
 		readingTime: 8,
 		thumbnailUrl: "/assets/Thumbnail-variant-2.png",
+		illustrationUrl: "/assets/thumbnails/heart.png",
+		thumbnailBg: "#fce4ec",
 	},
 	{
 		id: "7",
@@ -89,6 +101,8 @@ export const articles: Article[] = [
 		theme: "Study tips",
 		readingTime: 4,
 		thumbnailUrl: "/assets/Thumbnail-variant-1.png",
+		illustrationUrl: "/assets/thumbnails/cyan-mask.png",
+		thumbnailBg: "#e0f2f1",
 	},
 	{
 		id: "8",
