@@ -49,7 +49,7 @@ function LanguageSelector() {
 
 export function Footer() {
 	return (
-		<footer className="p-5">
+		<footer className="px-5 pb-5">
 			<div className="mx-auto rounded-2xl bg-footer-bg px-6 py-10 lg:px-12 lg:py-12 overflow-hidden">
 				{/* Top section: brand + main link columns */}
 				<div className="flex flex-col gap-10 lg:flex-row lg:gap-16">

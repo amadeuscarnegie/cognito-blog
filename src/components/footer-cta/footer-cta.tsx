@@ -13,18 +13,18 @@ export function FooterCTA() {
 	});
 
 	// Card moves down slightly as you scroll (parallax offset) — desktop only
-	const cardY = useTransform(scrollYProgress, [0, 1], ["-40px", "40px"]);
+	const cardY = useTransform(scrollYProgress, [0, 1], ["-20px", "20px"]);
 
 	return (
-		<section ref={sectionRef} className="relative isolate">
+		<section ref={sectionRef} className="relative isolate border-0">
 			{/* ===== MOBILE / TABLET LAYOUT ===== */}
 			<div className="lg:hidden">
 				{/* Card in normal flow, z-10 so it sits above the overlapping image */}
-				<Container className="relative z-10">
+				<Container className="relative z-10 -mb-10">
 					<CTACard />
 				</Container>
 				{/* Battle image: 2:1 aspect, 100% width, min-height 360px, -80px overlap */}
-				<div className="-mt-20">
+				<div className="-mt-20 border-0">
 					<img
 						src="/assets/blog-cta-battle-mobile.jpg"
 						alt=""
@@ -35,7 +35,7 @@ export function FooterCTA() {
 			</div>
 
 			{/* ===== DESKTOP LAYOUT ===== */}
-			<div className="hidden lg:block relative w-full">
+			<div className="hidden lg:block relative w-full border-0">
 				<img
 					src="/assets/blog-cta-battle-desktop.jpg"
 					alt=""
@@ -43,7 +43,7 @@ export function FooterCTA() {
 					aria-hidden="true"
 				/>
 				{/* CTA Card — absolutely positioned, centered on the illustration */}
-				<div className="absolute inset-0 flex items-center justify-center z-10">
+				<div className="absolute inset-0 flex items-start justify-center pt-[15%] z-10">
 					<Container>
 						<motion.div style={{ y: cardY }}>
 							<CTACard />
