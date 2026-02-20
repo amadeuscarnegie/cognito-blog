@@ -20,6 +20,12 @@
 	--font-heading: var(--font-heading), "Stratford Serial", serif;
 	--font-body: var(--font-body), "Nunito", sans-serif;
 
+	/* ─── Footer ─── */
+	--color-footer-bg: #0b3c61;
+	--color-footer-text: #ecf7ff;
+	--color-footer-muted: rgba(236, 247, 255, 0.5);
+	--color-footer-border: rgba(236, 247, 255, 0.15);
+
 	/* ─── Border Radius ─── */
 	--radius-2xs: 2px;
 	--radius-xs: 4px;
