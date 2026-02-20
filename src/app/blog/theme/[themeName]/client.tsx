@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
@@ -12,22 +12,28 @@ import { FAQsSection } from "@/components/faqs/faqs-section";
 import { FooterCTA } from "@/components/footer-cta/footer-cta";
 import { Footer } from "@/components/footer/footer";
 import { Button } from "@/components/ui/button";
+import { themes } from "@/lib/mock-data";
 import type { Article, Theme } from "@/types/blog";
 
 interface BlogThemeClientProps {
-	currentTheme: Theme;
-	articles: Article[];
+	initialTheme: Theme;
+	allArticles: Article[];
 }
 
 export function BlogThemeClient({
-	currentTheme,
-	articles,
+	initialTheme,
+	allArticles,
 }: BlogThemeClientProps) {
 	const router = useRouter();
-	const [activeTheme, setActiveTheme] = useState(currentTheme.slug);
+	const [activeTheme, setActiveTheme] = useState(initialTheme.slug);
 	const [searchQuery, setSearchQuery] = useState("");
 	const [modalOpen, setModalOpen] = useState(false);
 	const [modalPath, setModalPath] = useState("");
+
+	const currentTheme = useMemo(
+		() => themes.find((t) => t.slug === activeTheme) ?? themes[0],
+		[activeTheme],
+	);
 
 	// Simple fuzzy search - check if all characters in query appear in order in the title
 	const fuzzyMatch = (title: string, query: string): boolean => {
@@ -41,13 +47,26 @@ export function BlogThemeClient({
 		return qi === q.length;
 	};
 
-	const filteredArticles = articles.filter((a) =>
-		fuzzyMatch(a.title, searchQuery),
-	);
+	const filteredArticles = useMemo(() => {
+		let result = allArticles;
+
+		if (activeTheme !== "all") {
+			result = result.filter(
+				(a) => a.theme.toLowerCase() === currentTheme.name.toLowerCase(),
+			);
+		}
+
+		if (searchQuery) {
+			result = result.filter((a) => fuzzyMatch(a.title, searchQuery));
+		}
+
+		return result;
+	}, [allArticles, activeTheme, currentTheme.name, searchQuery]);
 
 	const handleThemeChange = (slug: string) => {
 		setActiveTheme(slug);
-		router.push(`/blog/theme/${slug}`);
+		setSearchQuery("");
+		router.replace(`/blog/theme/${slug}`, { scroll: false });
 	};
 
 	const handleLinkClick = (e: React.MouseEvent) => {

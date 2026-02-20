@@ -35,7 +35,7 @@ export function BlogHero({
 							{currentTheme.description}
 						</p>
 					</div>
-					<HeroIllustration />
+					<HeroIllustration themeSlug={activeThemeSlug} />
 				</div>
 
 				{/* Bottom: Nav + Search */}

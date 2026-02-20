@@ -8,15 +8,8 @@ export default async function BlogThemePage({
 }) {
 	const { themeName } = await params;
 
-	const currentTheme =
+	const initialTheme =
 		themes.find((t) => t.slug === themeName) ?? themes[0];
 
-	const filteredArticles =
-		themeName === "all"
-			? articles
-			: articles.filter(
-					(a) => a.theme.toLowerCase() === currentTheme.name.toLowerCase(),
-				);
-
-	return <BlogThemeClient currentTheme={currentTheme} articles={filteredArticles} />;
+	return <BlogThemeClient initialTheme={initialTheme} allArticles={articles} />;
 }
