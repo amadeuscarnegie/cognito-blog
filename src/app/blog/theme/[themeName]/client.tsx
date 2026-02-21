@@ -98,7 +98,6 @@ export function BlogThemeClient({
 					<ArticlesGrid articles={filteredArticles} />
 					<SectionDivider />
 					<FAQsSection />
-					<SectionDivider />
 					<FooterCTA />
 				</main>
 				<Footer />
