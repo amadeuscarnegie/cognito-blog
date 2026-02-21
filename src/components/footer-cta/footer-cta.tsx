@@ -1,50 +1,58 @@
-import { ArrowUpRight } from "lucide-react";
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { Container } from "@/components/layout/container";
-import { SectionLabel } from "@/components/ui/section-label";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { SectionDescription } from "@/components/ui/section-description";
-import { Button } from "@/components/ui/button";
-import { LoginLink } from "@/components/ui/login-link";
+import { CTACard } from "./cta-card";
 
 export function FooterCTA() {
+	const sectionRef = useRef<HTMLElement>(null);
+	const { scrollYProgress } = useScroll({
+		target: sectionRef,
+		offset: ["start end", "end start"],
+	});
+
+	// Card moves down slightly as you scroll (parallax offset) — desktop only
+	const cardY = useTransform(scrollYProgress, [0, 1], ["-20px", "20px"]);
+
 	return (
-		<section className="relative isolate overflow-hidden">
-			{/* Battle illustration — full-bleed background */}
-			<img
-				src="/assets/blog-cta-battle-mobile.jpg"
-				alt=""
-				className="absolute inset-0 -z-20 h-full w-full object-cover object-bottom"
-				aria-hidden="true"
-			/>
-
-			{/* Brand navy gradient overlay for legibility */}
-			<div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#0b3c61]/85 via-[#0b3c61]/55 to-[#0b3c61]/30" />
-
-			{/* CTA content */}
-			<Container>
-				<div className="flex flex-col items-center gap-4 py-20 lg:py-28 text-center max-w-[540px] mx-auto">
-					<SectionLabel className="text-white/90">
-						Students improve 2.5 grades on average
-					</SectionLabel>
-					<SectionHeading as="h2" className="text-white">
-						Don&apos;t let another term slip by
-					</SectionHeading>
-					<SectionDescription className="text-white/80 lg:text-lg">
-						Join 1,000,000+ students using our all-in-one platform with video
-						lessons, AI feedback, practice questions, and progress tracking.
-					</SectionDescription>
-					<div className="pt-2 w-full lg:w-auto">
-						<Button
-							variant="primary"
-							icon={<ArrowUpRight className="h-4 w-4" />}
-							className="w-full lg:w-auto bg-white text-[#0b3c61] hover:bg-white/90"
-						>
-							Get started - it&apos;s FREE
-						</Button>
-					</div>
-					<LoginLink className="text-white/70" />
+		<section ref={sectionRef} className="relative isolate pt-16 lg:pt-0">
+			{/* ===== MOBILE / TABLET LAYOUT ===== */}
+			<div className="lg:hidden">
+				{/* Card in normal flow, z-10 so it sits above the overlapping image */}
+				<Container className="relative z-10 -mb-10">
+					<CTACard />
+				</Container>
+				{/* Battle image: 2:1 aspect, 100% width, min-height 360px, -80px overlap */}
+				<div className="-mt-20 overflow-hidden aspect-[2/1] min-h-[360px] max-w-full">
+					<img
+						src="/assets/blog-cta-battle-mobile.jpg"
+						alt=""
+						className="w-full h-full object-cover object-bottom block scale-[1.005]"
+						aria-hidden="true"
+					/>
 				</div>
-			</Container>
+			</div>
+
+			{/* ===== DESKTOP LAYOUT ===== */}
+			<div className="hidden lg:block relative w-full">
+				<div className="overflow-hidden">
+					<img
+						src="/assets/blog-cta-battle-desktop.jpg"
+						alt=""
+						className="w-full h-auto block scale-[1.005]"
+						aria-hidden="true"
+					/>
+				</div>
+				{/* CTA Card — absolutely positioned, centered on the illustration */}
+				<div className="absolute inset-x-0 -top-[6%] bottom-0 flex items-start justify-center z-10">
+					<Container>
+						<motion.div style={{ y: cardY }}>
+							<CTACard />
+						</motion.div>
+					</Container>
+				</div>
+			</div>
 		</section>
 	);
 }
