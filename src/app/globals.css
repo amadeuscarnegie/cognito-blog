@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-@theme inline {
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
 	/* ─── Colors ─── */
 	--color-text-primary: #0b3c61;
 	--color-text-secondary: rgba(11, 60, 97, 0.7);
@@ -15,14 +17,20 @@
 	--color-nav-border: rgba(11, 60, 97, 0.1);
 	--color-search-input-bg: rgba(11, 60, 97, 0.05);
 	--color-shadow: rgba(11, 60, 97, 0.3);
-
-	/* ─── Fonts ─── */
-	--font-heading: var(--font-heading), "Stratford Serial", serif;
-	--font-body: var(--font-body), "Nunito", sans-serif;
-
-	/* ─── Footer ─── */
 	--color-footer-bg: #333333;
 	--color-footer-text: #e8e8e8;
+	--color-bg-page: #fcfbf8;
+	--color-bg-surface: #ffffff;
+	--color-btn-primary-bg: #0b3c61;
+	--color-btn-primary-text: #ecf7ff;
+	--color-card-grid-line: rgba(0, 0, 0, 0.04);
+	--color-overlay: rgba(0, 0, 0, 0.40);
+}
+
+@theme inline {
+	/* ─── Fonts (inline to avoid circular var() refs from Next.js font loading) ─── */
+	--font-heading: var(--font-heading), "Stratford Serial", serif;
+	--font-body: var(--font-body), "Nunito", sans-serif;
 
 	/* ─── Border Radius ─── */
 	--radius-2xs: 2px;
@@ -32,13 +40,53 @@
 	--radius-lg: 16px;
 }
 
+/* ─── Dark Mode ─── */
+.dark {
+	--color-text-primary: #e8eef4;
+	--color-text-secondary: rgba(232, 238, 244, 0.72);
+	--color-text-tertiary: rgba(232, 238, 244, 0.50);
+	--color-text-quaternary: rgba(232, 238, 244, 0.30);
+	--color-border-primary: #4a7a9b;
+	--color-border-brand: #3d9ae0;
+	--color-border-quaternary: rgba(232, 238, 244, 0.12);
+	--color-bg-secondary: #1a3148;
+	--color-bg-subtle: rgba(232, 238, 244, 0.04);
+	--color-nav-bg: #0f1f2e;
+	--color-nav-border: rgba(232, 238, 244, 0.08);
+	--color-search-input-bg: rgba(232, 238, 244, 0.06);
+	--color-shadow: rgba(0, 0, 0, 0.5);
+	--color-footer-bg: #0a1520;
+	--color-footer-text: #d0d0d0;
+	--color-bg-page: #121e2b;
+	--color-bg-surface: #182838;
+	--color-btn-primary-bg: #1a6fb5;
+	--color-btn-primary-text: #ffffff;
+	--color-card-grid-line: rgba(255, 255, 255, 0.06);
+	--color-overlay: rgba(0, 0, 0, 0.60);
+}
+
 /* ─── Base ─── */
 body {
 	font-family: var(--font-body);
 	color: var(--color-text-primary);
-	background-color: #fcfbf8;
+	background-color: var(--color-bg-page);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Dark mode card scrim ─── */
+.dark [data-card-bg]::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgba(18, 30, 43, 0.75);
+	pointer-events: none;
+	z-index: 1;
+}
+
+.dark [data-card-bg] img {
+	position: relative;
+	z-index: 2;
 }
 
 /* ─── Accordion animations ─── */

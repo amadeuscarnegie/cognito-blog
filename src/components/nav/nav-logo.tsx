@@ -10,7 +10,7 @@ export function NavLogo() {
 				width={122}
 				height={36}
 				priority
-				className="w-[106px] h-[31px] lg:w-[122px] lg:h-[36px]"
+				className="w-[106px] h-[31px] lg:w-[122px] lg:h-[36px] dark:brightness-0 dark:invert"
 			/>
 			<span className="font-body font-bold text-lg tracking-wide text-text-primary uppercase">
 				COGNITO

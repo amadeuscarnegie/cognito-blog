@@ -35,7 +35,14 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={`${nunito.variable} ${stratford.variable}`}>
+		<html lang="en" className={`${nunito.variable} ${stratford.variable}`} suppressHydrationWarning>
+			<head>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `(function(){try{var p=localStorage.getItem("cognito-theme-preference");if(p==="dark"||(p!=="light"&&matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")}catch(e){}})()`,
+					}}
+				/>
+			</head>
 			<body className="overflow-x-hidden">
 				<JsonLd data={organizationJsonLd()} />
 				<JsonLd data={webSiteJsonLd()} />
