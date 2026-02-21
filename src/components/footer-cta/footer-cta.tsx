@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { Container } from "@/components/layout/container";
 import { CTACard } from "./cta-card";
@@ -25,9 +26,11 @@ export function FooterCTA() {
 				</Container>
 				{/* Battle image: 2:1 aspect, 100% width, min-height 360px, -80px overlap */}
 				<div className="-mt-20 overflow-hidden aspect-[2/1] min-h-[360px] max-w-full">
-					<img
+					<Image
 						src="/assets/blog-cta-battle-mobile.jpg"
 						alt=""
+						width={400}
+						height={300}
 						className="w-full h-full object-cover object-bottom block scale-[1.005]"
 						aria-hidden="true"
 					/>
@@ -37,9 +40,11 @@ export function FooterCTA() {
 			{/* ===== DESKTOP LAYOUT ===== */}
 			<div className="hidden lg:block relative w-full">
 				<div className="overflow-hidden">
-					<img
+					<Image
 						src="/assets/blog-cta-battle-desktop.jpg"
 						alt=""
+						width={800}
+						height={400}
 						className="w-full h-auto block scale-[1.005]"
 						aria-hidden="true"
 					/>

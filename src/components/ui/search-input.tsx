@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useSyncExternalStore } from "react";
 import { Search, X } from "lucide-react";
 import { cn } from "@/lib/cn";
 
@@ -12,6 +12,11 @@ interface SearchInputProps {
 
 export function SearchInput({ value, onChange, className }: SearchInputProps) {
 	const inputRef = useRef<HTMLInputElement>(null);
+	const isMac = useSyncExternalStore(
+		() => () => {},
+		() => /Mac|iPod|iPhone|iPad/.test(navigator.platform || navigator.userAgent),
+		() => true,
+	);
 
 	useEffect(() => {
 		function handleKeyDown(e: KeyboardEvent) {
@@ -49,7 +54,7 @@ export function SearchInput({ value, onChange, className }: SearchInputProps) {
 					<X className="h-4 w-4" />
 				</button>
 			) : (
-				<kbd className="font-body text-xs text-text-quaternary">Cmd+K</kbd>
+				<kbd className="font-body text-xs text-text-quaternary">{isMac ? "⌘" : "Ctrl+"}K</kbd>
 			)}
 		</div>
 	);

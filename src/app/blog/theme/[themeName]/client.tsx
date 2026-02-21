@@ -20,6 +20,18 @@ interface BlogThemeClientProps {
 	allArticles: Article[];
 }
 
+// Simple fuzzy search - check if all characters in query appear in order in the title
+function fuzzyMatch(title: string, query: string): boolean {
+	if (!query) return true;
+	const lower = title.toLowerCase();
+	const q = query.toLowerCase();
+	let qi = 0;
+	for (let i = 0; i < lower.length && qi < q.length; i++) {
+		if (lower[i] === q[qi]) qi++;
+	}
+	return qi === q.length;
+}
+
 export function BlogThemeClient({
 	initialTheme,
 	allArticles,
@@ -34,18 +46,6 @@ export function BlogThemeClient({
 		() => themes.find((t) => t.slug === activeTheme) ?? themes[0],
 		[activeTheme],
 	);
-
-	// Simple fuzzy search - check if all characters in query appear in order in the title
-	const fuzzyMatch = (title: string, query: string): boolean => {
-		if (!query) return true;
-		const lower = title.toLowerCase();
-		const q = query.toLowerCase();
-		let qi = 0;
-		for (let i = 0; i < lower.length && qi < q.length; i++) {
-			if (lower[i] === q[qi]) qi++;
-		}
-		return qi === q.length;
-	};
 
 	const filteredArticles = useMemo(() => {
 		let result = allArticles;

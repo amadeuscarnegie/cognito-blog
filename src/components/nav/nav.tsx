@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { NavLogo } from "./nav-logo";
 import { NavItem } from "./nav-item";
 import { NavMobileToggle } from "./nav-mobile-toggle";
@@ -11,6 +11,7 @@ import { navItems } from "@/lib/mock-data";
 export function Nav() {
 	const [mobileOpen, setMobileOpen] = useState(false);
 	const [subNavOpen, setSubNavOpen] = useState(false);
+	const handleSubNavClose = useCallback(() => setSubNavOpen(false), []);
 
 	return (
 		<header className="sticky top-0 z-50 bg-nav-bg border-b border-nav-border">
@@ -34,7 +35,7 @@ export function Nav() {
 								{item.hasDropdown && (
 									<SubNav
 										isOpen={subNavOpen}
-										onClose={() => setSubNavOpen(false)}
+										onClose={handleSubNavClose}
 									/>
 								)}
 							</div>

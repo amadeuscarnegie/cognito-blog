@@ -28,8 +28,6 @@ const mainColumns: FooterColumn[] = [
 		links: [
 			{ label: "Blog", href: "/blog" },
 			{ label: "Help Center", href: "/help" },
-			{ label: "[Tool Name]", href: "#" },
-			{ label: "[Tool Name]", href: "#" },
 		],
 	},
 	{

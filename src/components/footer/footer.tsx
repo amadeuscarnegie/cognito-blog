@@ -1,7 +1,8 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { FooterMainColumns, FooterCourseColumns } from "./footer-links";
 import { FooterSocial } from "./footer-social";
 
@@ -10,9 +11,22 @@ const languages = ["English", "Spanish", "French", "German", "Portuguese"];
 function LanguageSelector() {
 	const [open, setOpen] = useState(false);
 	const [selected, setSelected] = useState("English");
+	const ref = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		function handleClickOutside(e: MouseEvent) {
+			if (ref.current && !ref.current.contains(e.target as Node)) {
+				setOpen(false);
+			}
+		}
+		if (open) {
+			document.addEventListener("mousedown", handleClickOutside);
+		}
+		return () => document.removeEventListener("mousedown", handleClickOutside);
+	}, [open]);
 
 	return (
-		<div className="relative">
+		<div ref={ref} className="relative">
 			<button
 				type="button"
 				onClick={() => setOpen(!open)}
@@ -56,9 +70,11 @@ export function Footer() {
 					{/* Brand column */}
 					<div className="flex flex-col gap-5 lg:w-[280px] shrink-0">
 						<div className="flex items-center gap-2">
-							<img
+							<Image
 								src="/assets/Logo.svg"
 								alt="Cognito"
+								width={32}
+								height={32}
 								className="w-8 h-8 brightness-0 invert"
 							/>
 							<span className="font-body font-bold text-lg tracking-wide text-white uppercase">
@@ -70,7 +86,7 @@ export function Footer() {
 							courses and comprehensive learning resources.
 						</p>
 						<p className="font-body text-xs text-footer-text/60">
-							&copy; 2025 Cognito. All rights reserved.
+							&copy; {new Date().getFullYear()} Cognito. All rights reserved.
 						</p>
 						<FooterSocial />
 						<LanguageSelector />
@@ -89,10 +105,12 @@ export function Footer() {
 				<div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
 					{/* Artwork in the brand column space */}
 					<div className="hidden lg:flex lg:w-[280px] shrink-0 items-end">
-						<img
+						<Image
 							src="/assets/Brand-building.png"
 							alt=""
 							aria-hidden="true"
+							width={220}
+							height={220}
 							className="w-[220px] opacity-90"
 						/>
 					</div>

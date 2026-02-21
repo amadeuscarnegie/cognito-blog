@@ -7,7 +7,7 @@ interface SubNavHeaderProps {
 
 export function SubNavHeader({ onBack, breadcrumb }: SubNavHeaderProps) {
 	return (
-		<div className="sticky top-0 flex items-center gap-2 px-4 py-3 bg-bg-subtle border-b border-border-quaternary rounded-t-radius-lg">
+		<div className="sticky top-0 flex items-center gap-2 px-4 py-3 bg-bg-subtle border-b border-border-quaternary rounded-t-lg">
 			<button
 				type="button"
 				onClick={onBack}
