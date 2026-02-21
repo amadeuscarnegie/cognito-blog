@@ -16,7 +16,7 @@ export function SearchInput({ value, onChange, className }: SearchInputProps) {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const isMac = useSyncExternalStore(
 		subscribe,
-		() => /Mac|iPod|iPhone|iPad/.test(navigator.platform || navigator.userAgent),
+		() => /Mac|iPod|iPhone|iPad/.test(navigator.userAgent),
 		() => true,
 	);
 

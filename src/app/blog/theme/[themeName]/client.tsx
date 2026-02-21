@@ -76,6 +76,8 @@ export function BlogThemeClient({
 			const url = new URL(anchor.href, window.location.origin);
 			// Allow external links (social media, etc.) to work normally
 			if (url.origin !== window.location.origin) return;
+			// Allow links that open in a new tab
+			if (anchor.target === "_blank") return;
 			// Allow theme navigation links to work
 			if (url.pathname.startsWith("/blog/theme/")) return;
 			e.preventDefault();

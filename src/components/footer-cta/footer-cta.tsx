@@ -31,6 +31,7 @@ export function FooterCTA() {
 						alt=""
 						width={400}
 						height={300}
+						sizes="100vw"
 						className="w-full h-full object-cover object-bottom block scale-[1.005]"
 						aria-hidden="true"
 					/>
@@ -45,6 +46,7 @@ export function FooterCTA() {
 						alt=""
 						width={800}
 						height={400}
+						sizes="100vw"
 						className="w-full h-auto block scale-[1.005]"
 						aria-hidden="true"
 					/>

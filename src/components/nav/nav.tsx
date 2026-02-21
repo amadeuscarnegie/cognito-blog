@@ -26,6 +26,7 @@ export function Nav() {
 									label={item.label}
 									href={item.hasDropdown ? undefined : item.href}
 									hasDropdown={item.hasDropdown}
+									isExpanded={item.hasDropdown ? subNavOpen : undefined}
 									onClick={
 										item.hasDropdown
 											? () => setSubNavOpen((prev) => !prev)

@@ -11,7 +11,9 @@ const languages = ["English", "Spanish", "French", "German", "Portuguese"];
 function LanguageSelector() {
 	const [open, setOpen] = useState(false);
 	const [selected, setSelected] = useState("English");
+	const [focusedIndex, setFocusedIndex] = useState(-1);
 	const ref = useRef<HTMLDivElement>(null);
+	const listRef = useRef<HTMLUListElement>(null);
 
 	useEffect(() => {
 		function handleClickOutside(e: MouseEvent) {
@@ -25,11 +27,49 @@ function LanguageSelector() {
 		return () => document.removeEventListener("mousedown", handleClickOutside);
 	}, [open]);
 
+	const handleKeyDown = (e: React.KeyboardEvent) => {
+		if (!open) {
+			if (e.key === "ArrowDown" || e.key === "ArrowUp" || e.key === "Enter" || e.key === " ") {
+				e.preventDefault();
+				setOpen(true);
+				setFocusedIndex(languages.indexOf(selected));
+			}
+			return;
+		}
+
+		switch (e.key) {
+			case "ArrowDown":
+				e.preventDefault();
+				setFocusedIndex((i) => (i + 1) % languages.length);
+				break;
+			case "ArrowUp":
+				e.preventDefault();
+				setFocusedIndex((i) => (i - 1 + languages.length) % languages.length);
+				break;
+			case "Enter":
+			case " ":
+				e.preventDefault();
+				if (focusedIndex >= 0) {
+					setSelected(languages[focusedIndex]);
+					setOpen(false);
+				}
+				break;
+			case "Escape":
+				e.preventDefault();
+				setOpen(false);
+				break;
+		}
+	};
+
 	return (
-		<div ref={ref} className="relative">
+		<div ref={ref} className="relative" onKeyDown={handleKeyDown}>
 			<button
 				type="button"
-				onClick={() => setOpen(!open)}
+				onClick={() => {
+					const willOpen = !open;
+					setOpen(willOpen);
+					if (willOpen) setFocusedIndex(languages.indexOf(selected));
+				}}
 				aria-label="Select language"
 				aria-expanded={open}
 				aria-haspopup="listbox"
@@ -39,23 +79,24 @@ function LanguageSelector() {
 				<ChevronDown className="h-3.5 w-3.5" />
 			</button>
 			{open && (
-				<ul role="listbox" aria-label="Language options" className="absolute bottom-full left-0 mb-1 rounded-lg border border-footer-text/20 bg-footer-bg py-1 shadow-lg">
-					{languages.map((lang) => (
-						<li key={lang}>
-							<button
-								type="button"
-								onClick={() => {
-									setSelected(lang);
-									setOpen(false);
-								}}
-								className={`w-full px-4 py-1.5 text-left text-sm transition-colors cursor-pointer ${
-									lang === selected
-										? "text-white"
-										: "text-footer-text hover:text-white"
-								}`}
-							>
-								{lang}
-							</button>
+				<ul ref={listRef} role="listbox" aria-label="Language options" aria-activedescendant={focusedIndex >= 0 ? `lang-option-${languages[focusedIndex]}` : undefined} className="absolute bottom-full left-0 mb-1 rounded-lg border border-footer-text/20 bg-footer-bg py-1 shadow-lg">
+					{languages.map((lang, i) => (
+						<li
+							key={lang}
+							id={`lang-option-${lang}`}
+							role="option"
+							aria-selected={lang === selected}
+							onClick={() => {
+								setSelected(lang);
+								setOpen(false);
+							}}
+							className={`w-full px-4 py-1.5 text-left text-sm transition-colors cursor-pointer ${
+								lang === selected
+									? "text-white"
+									: "text-footer-text hover:text-white"
+							} ${i === focusedIndex ? "bg-footer-text/10" : ""}`}
+						>
+							{lang}
 						</li>
 					))}
 				</ul>

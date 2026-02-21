@@ -21,13 +21,20 @@ export function SubNav({ isOpen, onClose }: SubNavProps) {
 				onClose();
 			}
 		}
+		function handleKeyDown(e: KeyboardEvent) {
+			if (e.key === "Escape") {
+				onClose();
+			}
+		}
 		// Defer listener registration so the opening click doesn't immediately trigger close
 		const id = requestAnimationFrame(() => {
 			document.addEventListener("mousedown", handleClickOutside);
 		});
+		document.addEventListener("keydown", handleKeyDown);
 		return () => {
 			cancelAnimationFrame(id);
 			document.removeEventListener("mousedown", handleClickOutside);
+			document.removeEventListener("keydown", handleKeyDown);
 		};
 	}, [isOpen, onClose]);
 
@@ -36,6 +43,7 @@ export function SubNav({ isOpen, onClose }: SubNavProps) {
 	return (
 		<div
 			ref={ref}
+			role="menu"
 			className="absolute top-full left-0 mt-2 w-[calc(100vw-2rem)] sm:w-[420px] bg-white rounded-lg shadow-xl border border-nav-border overflow-hidden z-50"
 			style={{ boxShadow: "0 20px 60px rgba(11,60,97,0.15)" }}
 		>
