@@ -99,8 +99,8 @@ export function BlogThemeClient({
 
 			{/* Coming Soon Modal */}
 			<Dialog.Portal>
-				<Dialog.Overlay className="fixed inset-0 bg-[var(--color-overlay)] z-[100] data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0" />
-				<Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[101] w-[90vw] max-w-[400px] bg-bg-surface rounded-md p-8 text-center shadow-xl">
+				<Dialog.Overlay className="fixed inset-0 bg-black/40 z-[100] data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0" />
+				<Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[101] w-[90vw] max-w-[400px] bg-white rounded-md p-8 text-center shadow-xl">
 					<Dialog.Title className="font-heading font-semibold text-2xl text-text-primary">
 						Coming soon
 					</Dialog.Title>

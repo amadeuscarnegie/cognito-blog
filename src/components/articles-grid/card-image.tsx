@@ -13,7 +13,6 @@ export function CardImage({ src, alt, illustrationUrl, bgColor, className }: Car
 	if (illustrationUrl && bgColor) {
 		return (
 			<div
-				data-card-bg
 				className={cn(
 					"relative overflow-hidden border-[1.5px] border-border-primary",
 					"rounded-md lg:rounded-lg",
@@ -25,8 +24,8 @@ export function CardImage({ src, alt, illustrationUrl, bgColor, className }: Car
 				style={{
 					backgroundColor: bgColor,
 					backgroundImage: `
-						linear-gradient(var(--color-card-grid-line) 1px, transparent 1px),
-						linear-gradient(90deg, var(--color-card-grid-line) 1px, transparent 1px)
+						linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+						linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)
 					`,
 					backgroundSize: "40px 40px",
 				}}

@@ -6,7 +6,6 @@ import { NavItem } from "./nav-item";
 import { NavMobileToggle } from "./nav-mobile-toggle";
 import { SubNav } from "./sub-nav";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { navItems } from "@/lib/nav-data";
 
 export function Nav() {
@@ -48,13 +47,11 @@ export function Nav() {
 				{/* Right - Desktop */}
 				<div className="hidden lg:flex items-center gap-3">
 					<Button variant="ghost">Sign in</Button>
-					<ThemeToggle />
 					<Button variant="primary">Sign up</Button>
 				</div>
 
 				{/* Right - Mobile */}
-				<div className="lg:hidden flex items-center gap-1">
-					<ThemeToggle />
+				<div className="lg:hidden">
 					<NavMobileToggle
 						isOpen={mobileOpen}
 						onToggle={() => setMobileOpen((prev) => !prev)}
