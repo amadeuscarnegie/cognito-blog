@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type FooterColumn = {
 	title: string;
 	links: { label: string; href: string }[];
@@ -99,18 +101,18 @@ function ColumnGroup({ columns }: { columns: FooterColumn[] }) {
 		<div className="grid grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-12">
 			{columns.map((col) => (
 				<div key={col.title}>
-					<h3 className="font-body text-xs font-bold uppercase tracking-wider text-white mb-4">
+					<div className="font-body text-xs font-bold uppercase tracking-wider text-white mb-4">
 						{col.title}
-					</h3>
+					</div>
 					<ul className="flex flex-col gap-2.5">
 						{col.links.map((link) => (
 							<li key={link.label}>
-								<a
+								<Link
 									href={link.href}
 									className="font-body text-sm text-footer-text hover:text-white transition-colors"
 								>
 									{link.label}
-								</a>
+								</Link>
 							</li>
 						))}
 					</ul>

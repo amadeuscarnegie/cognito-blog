@@ -5,31 +5,36 @@ export const themes: Theme[] = [
 		id: "1",
 		name: "All articles",
 		slug: "all",
-		description: "Browse all articles across every theme.",
+		description:
+			"Free revision tips, study guides and exam preparation articles for GCSE and A-Level students.",
 	},
 	{
 		id: "2",
 		name: "Study tips",
 		slug: "study-tips",
-		description: "Proven techniques to boost your revision and ace your exams.",
+		description:
+			"Proven revision techniques and study strategies to help GCSE and A-Level students prepare for exams effectively.",
 	},
 	{
 		id: "3",
 		name: "Science",
 		slug: "science",
-		description: "Explore biology, chemistry and physics concepts.",
+		description:
+			"Biology, Chemistry and Physics revision guides and explanations for GCSE and A-Level students.",
 	},
 	{
 		id: "4",
 		name: "Maths",
 		slug: "maths",
-		description: "Numbers, algebra, geometry and beyond.",
+		description:
+			"Maths revision guides covering algebra, geometry, trigonometry and more for GCSE and A-Level exam preparation.",
 	},
 	{
 		id: "5",
 		name: "Wellbeing",
 		slug: "wellbeing",
-		description: "Mental health, motivation and balance.",
+		description:
+			"Mental health, motivation and wellbeing advice for UK students managing GCSE and A-Level revision stress.",
 	},
 ];
 
@@ -210,33 +215,5 @@ export const faqs: FAQ[] = [
 		question: "Can teachers use Cognito for their classes?",
 		answer:
 			"Yes! Many teachers use Cognito to supplement their teaching. We offer tools for setting assignments and tracking student progress across your class.",
-	},
-];
-
-export const navItems = [
-	{ label: "Find my course", hasDropdown: true },
-	{ label: "Blog", href: "/blog/theme/all" },
-	{ label: "FAQ", href: "/faq" },
-	{ label: "Schools", href: "/schools" },
-];
-
-export const subNavSections = [
-	{
-		label: "GCSE",
-		items: [
-			{ label: "Biology", href: "/course/gcse-biology" },
-			{ label: "Chemistry", href: "/course/gcse-chemistry" },
-			{ label: "Physics", href: "/course/gcse-physics" },
-			{ label: "Maths", href: "/course/gcse-maths" },
-		],
-	},
-	{
-		label: "A-Level",
-		items: [
-			{ label: "Biology", href: "/course/a-level-biology" },
-			{ label: "Chemistry", href: "/course/a-level-chemistry" },
-			{ label: "Physics", href: "/course/a-level-physics" },
-			{ label: "Maths", href: "/course/a-level-maths" },
-		],
 	},
 ];

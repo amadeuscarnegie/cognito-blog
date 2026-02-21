@@ -45,6 +45,7 @@ export function SearchInput({ value, onChange, className }: SearchInputProps) {
 				value={value}
 				onChange={(e) => onChange(e.target.value)}
 				placeholder="Search"
+				aria-label="Search articles"
 				className="flex-1 bg-transparent font-body text-sm font-semibold text-text-primary placeholder:text-text-tertiary outline-none"
 			/>
 			{value ? (

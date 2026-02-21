@@ -12,24 +12,12 @@ import { FAQsSection } from "@/components/faqs/faqs-section";
 import { FooterCTA } from "@/components/footer-cta/footer-cta";
 import { Footer } from "@/components/footer/footer";
 import { Button } from "@/components/ui/button";
-import { themes } from "@/lib/mock-data";
+import { themes } from "@/lib/content-data";
 import type { Article, Theme } from "@/types/blog";
 
 interface BlogThemeClientProps {
 	initialTheme: Theme;
 	allArticles: Article[];
-}
-
-// Simple fuzzy search - check if all characters in query appear in order in the title
-function fuzzyMatch(title: string, query: string): boolean {
-	if (!query) return true;
-	const lower = title.toLowerCase();
-	const q = query.toLowerCase();
-	let qi = 0;
-	for (let i = 0; i < lower.length && qi < q.length; i++) {
-		if (lower[i] === q[qi]) qi++;
-	}
-	return qi === q.length;
 }
 
 export function BlogThemeClient({
@@ -57,7 +45,9 @@ export function BlogThemeClient({
 		}
 
 		if (searchQuery) {
-			result = result.filter((a) => fuzzyMatch(a.title, searchQuery));
+			result = result.filter((a) =>
+				a.title.toLowerCase().includes(searchQuery.toLowerCase()),
+			);
 		}
 
 		return result;
@@ -99,7 +89,7 @@ export function BlogThemeClient({
 						searchQuery={searchQuery}
 						onSearchChange={setSearchQuery}
 					/>
-					<ArticlesGrid key={activeTheme} articles={filteredArticles} />
+					<ArticlesGrid key={activeTheme} articles={filteredArticles} tabId={`blog-tab-${activeTheme}`} />
 					<SectionDivider />
 					<FAQsSection />
 					<FooterCTA />

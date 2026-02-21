@@ -50,7 +50,9 @@ export function BlogNav({ themes, activeTheme, onThemeChange }: BlogNavProps) {
 						key={theme.slug}
 						type="button"
 						role="tab"
+						id={`blog-tab-${theme.slug}`}
 						aria-selected={isActive}
+						aria-controls="blog-tabpanel"
 						tabIndex={isActive ? 0 : -1}
 						onClick={() => onThemeChange(theme.slug)}
 						className={cn(

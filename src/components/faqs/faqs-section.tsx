@@ -6,7 +6,7 @@ import { SectionDescription } from "@/components/ui/section-description";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { Button } from "@/components/ui/button";
 import { Accordion } from "@/components/ui/accordion/accordion";
-import { faqs } from "@/lib/mock-data";
+import { faqs } from "@/lib/content-data";
 
 export function FAQsSection() {
 	return (

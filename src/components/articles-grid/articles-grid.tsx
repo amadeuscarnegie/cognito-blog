@@ -8,19 +8,26 @@ import type { Article } from "@/types/blog";
 
 interface ArticlesGridProps {
 	articles: Article[];
+	tabId?: string;
 }
 
 const INITIAL_COUNT = 12;
 const LOAD_MORE_COUNT = 6;
 
-export function ArticlesGrid({ articles }: ArticlesGridProps) {
+export function ArticlesGrid({ articles, tabId }: ArticlesGridProps) {
 	const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
 	const visibleArticles = articles.slice(0, visibleCount);
 	const hasMore = visibleCount < articles.length;
 
 	return (
-		<section className="py-6 lg:py-10">
+		<section
+			id="blog-tabpanel"
+			role="tabpanel"
+			aria-labelledby={tabId}
+			className="py-6 lg:py-10"
+		>
 			<Container>
+				<h2 className="sr-only">Articles</h2>
 				<div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-8">
 					{visibleArticles.map((article) => (
 						<ArticleCard key={article.id} article={article} />

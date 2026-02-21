@@ -3,7 +3,7 @@
 import { useRef, useEffect } from "react";
 import { SubNavHeader } from "./sub-nav-header";
 import { SubNavSection } from "./sub-nav-section";
-import { subNavSections } from "@/lib/mock-data";
+import { subNavSections } from "@/lib/nav-data";
 
 interface SubNavProps {
 	isOpen: boolean;

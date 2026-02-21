@@ -1,7 +1,14 @@
 import { notFound } from "next/navigation";
-import { themes, articles } from "@/lib/mock-data";
+import { themes, articles, faqs } from "@/lib/content-data";
+import {
+	JsonLd,
+	faqPageJsonLd,
+	breadcrumbJsonLd,
+} from "@/lib/json-ld";
 import { BlogThemeClient } from "./client";
 import type { Metadata } from "next";
+
+const BASE_URL = "https://cognitolearning.co.uk";
 
 export function generateStaticParams() {
 	return themes.map((t) => ({ themeName: t.slug }));
@@ -18,8 +25,8 @@ export async function generateMetadata({
 
 	const title =
 		theme.slug === "all"
-			? "Cognito Blog"
-			: `${theme.name} — Cognito Blog`;
+			? "Free GCSE & A-Level Revision Tips"
+			: `${theme.name} — GCSE & A-Level Revision`;
 
 	return {
 		title,
@@ -29,6 +36,15 @@ export async function generateMetadata({
 			description: theme.description,
 			type: "website",
 			siteName: "Cognito",
+		},
+		twitter: {
+			card: "summary_large_image",
+			site: "@CognitoEdu",
+			title,
+			description: theme.description,
+		},
+		alternates: {
+			canonical: `${BASE_URL}/blog/theme/${themeName}`,
 		},
 	};
 }
@@ -43,5 +59,24 @@ export default async function BlogThemePage({
 	const initialTheme = themes.find((t) => t.slug === themeName);
 	if (!initialTheme) notFound();
 
-	return <BlogThemeClient initialTheme={initialTheme} allArticles={articles} />;
+	const breadcrumbItems = [
+		{ name: "Home", url: BASE_URL },
+		{ name: "Blog", url: `${BASE_URL}/blog/theme/all` },
+		...(initialTheme.slug !== "all"
+			? [
+					{
+						name: initialTheme.name,
+						url: `${BASE_URL}/blog/theme/${initialTheme.slug}`,
+					},
+				]
+			: []),
+	];
+
+	return (
+		<>
+			<JsonLd data={breadcrumbJsonLd(breadcrumbItems)} />
+			<JsonLd data={faqPageJsonLd(faqs)} />
+			<BlogThemeClient initialTheme={initialTheme} allArticles={articles} />
+		</>
+	);
 }

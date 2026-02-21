@@ -6,7 +6,7 @@ import { NavItem } from "./nav-item";
 import { NavMobileToggle } from "./nav-mobile-toggle";
 import { SubNav } from "./sub-nav";
 import { Button } from "@/components/ui/button";
-import { navItems } from "@/lib/mock-data";
+import { navItems } from "@/lib/nav-data";
 
 export function Nav() {
 	const [mobileOpen, setMobileOpen] = useState(false);

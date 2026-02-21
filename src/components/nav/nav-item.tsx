@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
 interface NavItemProps {
@@ -27,9 +28,9 @@ export function NavItem({
 
 	if (href) {
 		return (
-			<a href={href} onClick={onClick} className={navItemClassName}>
+			<Link href={href} onClick={onClick} className={navItemClassName}>
 				{content}
-			</a>
+			</Link>
 		);
 	}
 

@@ -4,7 +4,7 @@ import { Container } from "@/components/layout/container";
 import { BlogNav } from "./blog-nav";
 import { HeroIllustration } from "./hero-illustration";
 import { SearchInput } from "@/components/ui/search-input";
-import { themes } from "@/lib/mock-data";
+import { themes } from "@/lib/content-data";
 import type { Theme } from "@/types/blog";
 
 interface BlogHeroProps {
