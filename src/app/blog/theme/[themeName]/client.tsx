@@ -98,7 +98,9 @@ export function BlogThemeClient({
 					<ArticlesGrid articles={filteredArticles} />
 					<SectionDivider />
 					<FAQsSection />
-					<SectionDivider />
+					<div className="hidden lg:block">
+						<SectionDivider />
+					</div>
 					<FooterCTA />
 				</main>
 				<Footer />

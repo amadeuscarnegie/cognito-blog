@@ -10,7 +10,7 @@ import { faqs } from "@/lib/mock-data";
 
 export function FAQsSection() {
 	return (
-		<section className="py-10 lg:pt-16 lg:pb-32">
+		<section className="py-10 lg:pt-16 lg:pb-16">
 			<Container>
 				<div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
 					{/* Left */}
