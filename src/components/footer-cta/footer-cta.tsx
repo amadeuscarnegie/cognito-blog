@@ -16,7 +16,7 @@ export function FooterCTA() {
 	const cardY = useTransform(scrollYProgress, [0, 1], ["-20px", "20px"]);
 
 	return (
-		<section ref={sectionRef} className="relative isolate pt-16 lg:pt-0">
+		<section ref={sectionRef} className="relative isolate pt-16 lg:pt-6">
 			{/* ===== MOBILE / TABLET LAYOUT ===== */}
 			<div className="lg:hidden">
 				{/* Card in normal flow, z-10 so it sits above the overlapping image */}
