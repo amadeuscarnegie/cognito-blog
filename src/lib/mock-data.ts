@@ -240,10 +240,3 @@ export const subNavSections = [
 		],
 	},
 ];
-
-export const footerLinks = [
-	{ label: "FAQ", href: "/faq" },
-	{ label: "Terms", href: "/terms" },
-	{ label: "Privacy", href: "/privacy" },
-	{ label: "Cookies", href: "/cookies" },
-];

@@ -4,6 +4,8 @@ import { useRef, useEffect, useSyncExternalStore } from "react";
 import { Search, X } from "lucide-react";
 import { cn } from "@/lib/cn";
 
+const subscribe = () => () => {};
+
 interface SearchInputProps {
 	value: string;
 	onChange: (value: string) => void;
@@ -13,7 +15,7 @@ interface SearchInputProps {
 export function SearchInput({ value, onChange, className }: SearchInputProps) {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const isMac = useSyncExternalStore(
-		() => () => {},
+		subscribe,
 		() => /Mac|iPod|iPhone|iPad/.test(navigator.platform || navigator.userAgent),
 		() => true,
 	);
@@ -49,6 +51,7 @@ export function SearchInput({ value, onChange, className }: SearchInputProps) {
 				<button
 					type="button"
 					onClick={() => onChange("")}
+					aria-label="Clear search"
 					className="cursor-pointer text-text-tertiary hover:text-text-primary"
 				>
 					<X className="h-4 w-4" />

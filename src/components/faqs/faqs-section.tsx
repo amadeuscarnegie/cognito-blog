@@ -24,7 +24,7 @@ export function FAQsSection() {
 							aria-hidden="true"
 						/>
 						<SectionLabel>Frequently asked questions</SectionLabel>
-						<SectionHeading>Got questions? We've got answers</SectionHeading>
+						<SectionHeading>Got questions? We&apos;ve got answers</SectionHeading>
 						<SectionDescription>
 							Everything you need to know about Cognito, from getting started to
 							making the most of your revision.

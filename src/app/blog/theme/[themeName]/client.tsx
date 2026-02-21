@@ -74,6 +74,8 @@ export function BlogThemeClient({
 		const anchor = target.closest("a");
 		if (anchor && anchor.href) {
 			const url = new URL(anchor.href, window.location.origin);
+			// Allow external links (social media, etc.) to work normally
+			if (url.origin !== window.location.origin) return;
 			// Allow theme navigation links to work
 			if (url.pathname.startsWith("/blog/theme/")) return;
 			e.preventDefault();
@@ -95,7 +97,7 @@ export function BlogThemeClient({
 						searchQuery={searchQuery}
 						onSearchChange={setSearchQuery}
 					/>
-					<ArticlesGrid articles={filteredArticles} />
+					<ArticlesGrid key={activeTheme} articles={filteredArticles} />
 					<SectionDivider />
 					<FAQsSection />
 					<FooterCTA />

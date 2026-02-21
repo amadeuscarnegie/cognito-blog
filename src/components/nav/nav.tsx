@@ -28,7 +28,7 @@ export function Nav() {
 									hasDropdown={item.hasDropdown}
 									onClick={
 										item.hasDropdown
-											? () => setSubNavOpen(!subNavOpen)
+											? () => setSubNavOpen((prev) => !prev)
 											: undefined
 									}
 								/>
@@ -53,7 +53,7 @@ export function Nav() {
 				<div className="lg:hidden">
 					<NavMobileToggle
 						isOpen={mobileOpen}
-						onToggle={() => setMobileOpen(!mobileOpen)}
+						onToggle={() => setMobileOpen((prev) => !prev)}
 					/>
 				</div>
 			</div>

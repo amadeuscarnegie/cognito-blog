@@ -11,6 +11,7 @@ export function SubNavHeader({ onBack, breadcrumb }: SubNavHeaderProps) {
 			<button
 				type="button"
 				onClick={onBack}
+				aria-label="Close submenu"
 				className="flex items-center justify-center h-6 w-6 cursor-pointer"
 			>
 				<ArrowLeft className="h-4 w-4 text-text-primary" />

@@ -30,13 +30,16 @@ function LanguageSelector() {
 			<button
 				type="button"
 				onClick={() => setOpen(!open)}
+				aria-label="Select language"
+				aria-expanded={open}
+				aria-haspopup="listbox"
 				className="flex items-center gap-2 rounded-lg border border-footer-text/20 px-3 py-1.5 text-sm text-footer-text hover:border-footer-text/40 transition-colors cursor-pointer"
 			>
 				{selected}
 				<ChevronDown className="h-3.5 w-3.5" />
 			</button>
 			{open && (
-				<ul className="absolute bottom-full left-0 mb-1 rounded-lg border border-footer-text/20 bg-footer-bg py-1 shadow-lg">
+				<ul role="listbox" aria-label="Language options" className="absolute bottom-full left-0 mb-1 rounded-lg border border-footer-text/20 bg-footer-bg py-1 shadow-lg">
 					{languages.map((lang) => (
 						<li key={lang}>
 							<button

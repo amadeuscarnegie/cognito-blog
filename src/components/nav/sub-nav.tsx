@@ -14,15 +14,21 @@ export function SubNav({ isOpen, onClose }: SubNavProps) {
 	const ref = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
+		if (!isOpen) return;
+
 		function handleClickOutside(e: MouseEvent) {
 			if (ref.current && !ref.current.contains(e.target as Node)) {
 				onClose();
 			}
 		}
-		if (isOpen) {
+		// Defer listener registration so the opening click doesn't immediately trigger close
+		const id = requestAnimationFrame(() => {
 			document.addEventListener("mousedown", handleClickOutside);
-		}
-		return () => document.removeEventListener("mousedown", handleClickOutside);
+		});
+		return () => {
+			cancelAnimationFrame(id);
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
 	}, [isOpen, onClose]);
 
 	if (!isOpen) return null;
