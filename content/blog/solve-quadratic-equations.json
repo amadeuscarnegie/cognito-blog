@@ -1,0 +1,225 @@
+{
+	"title": "How to solve quadratic equations step by step",
+	"slug": "solve-quadratic-equations",
+	"excerpt": "Master the three main methods for solving quadratic equations — factorising, the quadratic formula, and completing the square — with worked examples and exam tips for GCSE Maths.",
+	"date": "2026-02-12",
+	"lastUpdated": null,
+	"published": true,
+	"author": {
+		"name": "Emily Clark",
+		"avatarUrl": "/assets/authors/emily.jpg"
+	},
+	"tags": {
+		"level": [
+			"GCSE"
+		],
+		"subject": [
+			"Mathematics"
+		],
+		"theme": [
+			"maths"
+		],
+		"audience": [
+			"Students"
+		]
+	},
+	"thumbnailUrl": "/assets/Thumbnail-variant-2.png",
+	"illustrationUrl": "/assets/thumbnails/disc-brake.png",
+	"thumbnailBg": "#fff3e0",
+	"heroImageUrl": "/assets/Thumbnail-variant-2.png",
+	"readingTime": 6,
+	"sections": [
+		{
+			"type": "text",
+			"content": "## What is a quadratic equation?\n\nA quadratic equation is any equation that can be written in the form **ax² + bx + c = 0**, where **a**, **b**, and **c** are constants and **a ≠ 0**. The highest power of the unknown (x) is 2, which is what makes it \"quadratic.\"\n\nQuadratics appear everywhere in GCSE Maths — from projectile motion questions in physics to area problems in geometry. Being able to solve them confidently is one of the most important skills you can build.\n\nThere are **three main methods** for solving quadratic equations:\n\n1. **Factorising** — the quickest method when it works\n2. **The quadratic formula** — works for any quadratic\n3. **Completing the square** — useful for exact answers and turning points\n\nIn this guide, we'll walk through each method step by step with worked examples, so you know exactly which approach to reach for in your exam."
+		},
+		{
+			"type": "benefits",
+			"items": [
+				{
+					"icon": "target",
+					"title": "Three methods, every question covered",
+					"description": "Learn factorising, the quadratic formula, and completing the square so you can tackle any problem the exam throws at you."
+				},
+				{
+					"icon": "brain",
+					"title": "Understand, don't just memorise",
+					"description": "We explain the reasoning behind each step so the methods stick in long-term memory."
+				},
+				{
+					"icon": "zap",
+					"title": "Know which method to pick",
+					"description": "A clear decision framework helps you choose the fastest approach under timed conditions."
+				},
+				{
+					"icon": "award",
+					"title": "Exam-ready confidence",
+					"description": "Worked examples follow the exact format GCSE mark schemes expect."
+				}
+			]
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "text",
+			"content": "## Method 1: Factorising\n\nFactorising is the fastest way to solve a quadratic — but it only works when the equation factors neatly into whole numbers.\n\n### How it works\n\nYou rewrite ax² + bx + c as a product of two brackets, then set each bracket equal to zero.\n\n### Worked example\n\n**Solve x² + 5x + 6 = 0**\n\n1. Find two numbers that **multiply to give 6** (the constant term) and **add to give 5** (the coefficient of x).\n2. The numbers are **2 and 3** because 2 × 3 = 6 and 2 + 3 = 5.\n3. Write the equation as **(x + 2)(x + 3) = 0**.\n4. Set each bracket equal to zero:\n   - x + 2 = 0 → **x = −2**\n   - x + 3 = 0 → **x = −3**\n\n**Solutions: x = −2 or x = −3**\n\n### A harder example with a leading coefficient\n\n**Solve 2x² + 7x + 3 = 0**\n\n1. Multiply a × c: 2 × 3 = 6.\n2. Find two numbers that multiply to 6 and add to 7: **1 and 6**.\n3. Split the middle term: 2x² + x + 6x + 3 = 0.\n4. Factor by grouping: x(2x + 1) + 3(2x + 1) = 0.\n5. Factor out the common bracket: **(x + 3)(2x + 1) = 0**.\n6. Solutions:\n   - x + 3 = 0 → **x = −3**\n   - 2x + 1 = 0 → **x = −½**"
+		},
+		{
+			"type": "alert",
+			"variant": "tip",
+			"title": "Exam tip: always check your answers",
+			"content": "Substitute your solutions back into the original equation to verify they work. This takes 30 seconds and can save you marks — examiners award method marks even when arithmetic slips happen, but checking catches those slips before you move on."
+		},
+		{
+			"type": "image",
+			"src": "/assets/Thumbnail-variant-1.png",
+			"alt": "Step-by-step diagram of solving a quadratic by factorising",
+			"caption": "Factorising breaks a quadratic into two linear brackets — each one gives a solution",
+			"variant": "full"
+		},
+		{
+			"type": "text",
+			"content": "## Method 2: The quadratic formula\n\nWhen a quadratic doesn't factorise neatly, the quadratic formula will always give you the answer. It works for **every** quadratic equation.\n\n### The formula\n\n**x = (−b ± √(b² − 4ac)) / 2a**\n\nYou read the values of a, b, and c directly from ax² + bx + c = 0, then substitute them in.\n\n### Worked example\n\n**Solve 3x² − 2x − 4 = 0** (give answers to 2 decimal places)\n\nHere a = 3, b = −2, c = −4.\n\n1. Calculate b² − 4ac = (−2)² − 4(3)(−4) = 4 + 48 = **52**\n2. Substitute into the formula:\n   - x = (−(−2) ± √52) / (2 × 3)\n   - x = (2 ± √52) / 6\n3. Find the two solutions:\n   - x = (2 + 7.2111…) / 6 = 9.2111… / 6 = **1.54** (2 d.p.)\n   - x = (2 − 7.2111…) / 6 = −5.2111… / 6 = **−0.87** (2 d.p.)\n\n**Solutions: x = 1.54 or x = −0.87**"
+		},
+		{
+			"type": "alert",
+			"variant": "warning",
+			"title": "Watch the signs",
+			"content": "The most common mistake with the quadratic formula is mishandling negative values of b. Remember: if b = −2, then −b = 2 (positive). Write out each substitution carefully and use brackets around negative numbers to avoid sign errors."
+		},
+		{
+			"type": "text",
+			"content": "## The discriminant: how many solutions?\n\nThe expression under the square root in the quadratic formula — **b² − 4ac** — is called the **discriminant**. It tells you how many real solutions the equation has before you even solve it.\n\n- **b² − 4ac > 0** → Two distinct real solutions (the parabola crosses the x-axis twice)\n- **b² − 4ac = 0** → One repeated real solution (the parabola just touches the x-axis)\n- **b² − 4ac < 0** → No real solutions (the parabola doesn't reach the x-axis)\n\n### Quick example\n\nFor the equation x² + 4x + 4 = 0:\n\n- b² − 4ac = 16 − 16 = **0**\n- So there is **one repeated root**: x = −2\n\nFor the equation x² + 2x + 5 = 0:\n\n- b² − 4ac = 4 − 20 = **−16**\n- Since this is negative, the equation has **no real solutions**."
+		},
+		{
+			"type": "alert",
+			"variant": "info",
+			"title": "Higher-tier only",
+			"content": "Questions that ask you to \"show that the equation has no real roots\" or to find the number of intersections between a line and a curve almost always require you to calculate the discriminant. This topic appears frequently on higher-tier papers."
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "text",
+			"content": "## Method 3: Completing the square\n\nCompleting the square rewrites the quadratic in the form **(x + p)² + q = 0**. It's especially useful when the question asks for exact answers (in surd form) or when you need to find the turning point of a parabola.\n\n### How it works (when a = 1)\n\n**Solve x² + 6x + 2 = 0**\n\n1. Halve the coefficient of x: 6 ÷ 2 = **3**.\n2. Write the perfect square and compensate:\n   - x² + 6x + 2 = (x + 3)² − 9 + 2 = **(x + 3)² − 7 = 0**\n3. Rearrange for x:\n   - (x + 3)² = 7\n   - x + 3 = ±√7\n   - **x = −3 ± √7**\n\n**Solutions: x = −3 + √7 or x = −3 − √7**\n\nAs decimals: x ≈ −0.35 or x ≈ −5.65\n\n### Why the turning point matters\n\nOnce you have the completed square form (x + p)² + q, you can read off the turning point directly: it's at **(−p, q)**.\n\nFor the example above, the turning point of y = x² + 6x + 2 is at **(−3, −7)**. This is a minimum because the x² coefficient is positive."
+		},
+		{
+			"type": "image",
+			"src": "/assets/Thumbnail-variant-2.png",
+			"alt": "Graph showing a quadratic parabola with its turning point labelled",
+			"caption": "Completing the square reveals the turning point of the parabola",
+			"variant": "medium"
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "text",
+			"content": "## Which method should you use?\n\nChoosing the right method saves time in the exam. Here's a quick decision guide:\n\n- **Try factorising first** — it's the fastest. If you can spot the factor pair within about 30 seconds, go for it.\n- **Use the quadratic formula** when the equation doesn't factorise, or when the question says \"give your answer to 2 decimal places\" (this is a strong hint that the formula is needed).\n- **Complete the square** when the question specifically asks you to, or when it asks for the turning point of the curve."
+		},
+		{
+			"type": "table",
+			"headers": [
+				"Method",
+				"Speed",
+				"When to use",
+				"Gives exact answers?"
+			],
+			"rows": [
+				[
+					"Factorising",
+					"Fast",
+					"When the quadratic factors into whole numbers",
+					"Yes"
+				],
+				[
+					"Quadratic formula",
+					"Medium",
+					"Any quadratic — especially when answers are decimals",
+					"Yes (can give surds)"
+				],
+				[
+					"Completing the square",
+					"Slower",
+					"Finding turning points or when specifically asked",
+					"Yes (surd form)"
+				]
+			]
+		},
+		{
+			"type": "alert",
+			"variant": "success",
+			"title": "Golden rule for exams",
+			"content": "If a question says \"solve by factorising,\" you must use that method — you'll lose marks for using the formula even if you get the right answer. Always read the question carefully and use the method it asks for."
+		},
+		{
+			"type": "text",
+			"content": "## Common mistakes to avoid\n\nQuadratic equations carry a lot of marks on GCSE papers, so avoiding these pitfalls is essential:\n\n- **Forgetting to set the equation to zero first.** If you have x² + 3x = 10, you must rewrite it as x² + 3x − 10 = 0 before factorising or applying the formula.\n- **Dropping the ± in the quadratic formula.** The \"±\" gives you two solutions — missing one loses marks.\n- **Sign errors in the discriminant.** Double-check when b or c is negative. Write b² − 4ac with brackets: (−2)² − 4(3)(−4).\n- **Forgetting to divide by 2a.** Students sometimes divide only the square root part instead of the entire numerator.\n- **Not simplifying surds.** If your answer involves √52, simplify it to 2√13 if the question asks for exact form."
+		},
+		{
+			"type": "checklist",
+			"title": "Quadratic equations exam checklist",
+			"description": "Run through this list before moving on from any quadratic question:",
+			"items": [
+				"Rearranged the equation into the form ax² + bx + c = 0",
+				"Identified values of a, b, and c correctly (including signs)",
+				"Chose the appropriate method for the question",
+				"Found both solutions (or stated there is one/no real solution)",
+				"Substituted answers back into the original equation to check",
+				"Given answers in the form the question asks for (exact, decimal, etc.)",
+				"Simplified any surds where required"
+			]
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "accordion",
+			"title": "Frequently asked questions",
+			"items": [
+				{
+					"title": "Can a quadratic equation have more than two solutions?",
+					"content": "No. A quadratic equation can have at most two real solutions, because the graph of a quadratic (a parabola) can cross the x-axis at most twice. It can also have exactly one solution (a repeated root) or no real solutions at all."
+				},
+				{
+					"title": "What if the coefficient of x² isn't 1?",
+					"content": "All three methods still work. For factorising, use the grouping method (multiply a × c, find the factor pair, split the middle term). For the quadratic formula, just read off a, b, and c as normal. For completing the square, factor out the leading coefficient first: 2x² + 8x + 3 becomes 2(x² + 4x) + 3, then complete the square inside the bracket."
+				},
+				{
+					"title": "Do I need to memorise the quadratic formula?",
+					"content": "Yes — it is not given on the GCSE formula sheet for most exam boards. You need to know x = (−b ± √(b² − 4ac)) / 2a by heart. Practise writing it out from memory until it's automatic."
+				},
+				{
+					"title": "When would I use the discriminant on its own?",
+					"content": "Whenever a question asks how many solutions or roots an equation has, or asks you to prove something has no real solutions. It also comes up when finding where a line intersects a curve — you set the equations equal, form a quadratic, and use the discriminant to determine the number of intersection points."
+				},
+				{
+					"title": "What's the difference between 'roots' and 'solutions'?",
+					"content": "They mean the same thing in this context. 'Roots' is the more formal mathematical term for the values of x that satisfy the equation. 'Solutions' is the more general term. In your exam, you can use either."
+				}
+			]
+		},
+		{
+			"type": "cta",
+			"variant": "large",
+			"title": "Practise quadratic equations interactively",
+			"description": "Cognito has hundreds of GCSE Maths questions with instant feedback, worked solutions, and video explanations for every topic.",
+			"buttonText": "Start practising for free",
+			"buttonUrl": "https://cognito.org/signup"
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "related-content",
+			"title": "Related articles",
+			"slugs": [
+				"how-to-revise-effectively-gcses",
+				"top-10-revision-mistakes",
+				"understanding-photosynthesis"
+			]
+		}
+	]
+}

@@ -1,15 +1,27 @@
 import { articles } from "@/lib/content-data";
+import { getAllArticles } from "@/lib/articles";
 import { BASE_URL } from "@/lib/constants";
 
 export function GET() {
+	const fullArticles = getAllArticles();
+	const fullArticleMap = new Map(fullArticles.map((a) => [a.slug, a]));
+
 	const items = articles
-		.map(
-			(article) => `    <item>
+		.map((article) => {
+			const full = fullArticleMap.get(article.slug);
+			const descriptionTag = full?.excerpt
+				? `\n      <description>${escapeXml(full.excerpt)}</description>`
+				: "";
+			const pubDateTag = full?.date
+				? `\n      <pubDate>${new Date(full.date).toUTCString()}</pubDate>`
+				: "";
+
+			return `    <item>
       <title>${escapeXml(article.title)}</title>
       <link>${BASE_URL}/blog/${article.slug}</link>
-      <guid isPermaLink="true">${BASE_URL}/blog/${article.slug}</guid>
-    </item>`
-		)
+      <guid isPermaLink="true">${BASE_URL}/blog/${article.slug}</guid>${descriptionTag}${pubDateTag}
+    </item>`;
+		})
 		.join("\n");
 
 	const feed = `<?xml version="1.0" encoding="UTF-8"?>

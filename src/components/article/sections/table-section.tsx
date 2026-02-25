@@ -6,11 +6,11 @@ export function TableSection({ headers, rows }: TableSectionType) {
 			<div className="overflow-x-auto">
 				<table className="w-full border-collapse">
 					<thead>
-						<tr className="bg-bg-secondary">
+						<tr className="bg-[#d1eafd]">
 							{headers.map((header, i) => (
 								<th
 									key={i}
-									className="px-4 py-3 text-left font-heading font-semibold text-sm text-text-primary border-r border-border-quaternary last:border-r-0"
+									className="px-4 py-3 text-left font-heading font-bold text-sm text-text-primary border-r border-border-quaternary last:border-r-0"
 								>
 									{header}
 								</th>
@@ -22,7 +22,7 @@ export function TableSection({ headers, rows }: TableSectionType) {
 							<tr
 								key={rowIndex}
 								className={
-									rowIndex % 2 === 0 ? "bg-transparent" : "bg-bg-subtle"
+									rowIndex % 2 === 0 ? "bg-white" : "bg-bg-subtle"
 								}
 							>
 								{row.map((cell, cellIndex) => (

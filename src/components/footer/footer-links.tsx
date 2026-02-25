@@ -5,44 +5,46 @@ type FooterColumn = {
 	links: { label: string; href: string }[];
 };
 
+const COGNITO_BASE = "https://www.cognito.org";
+
 const mainColumns: FooterColumn[] = [
 	{
 		title: "How we help...",
 		links: [
-			{ label: "Schools", href: "/schools" },
-			{ label: "Students", href: "/students" },
-			{ label: "Teachers", href: "/teachers" },
-			{ label: "Parents", href: "/parents" },
+			{ label: "Schools", href: `${COGNITO_BASE}/schools` },
+			{ label: "Students", href: `${COGNITO_BASE}/students` },
+			{ label: "Teachers", href: `${COGNITO_BASE}/teachers` },
+			{ label: "Parents", href: `${COGNITO_BASE}/parents` },
 		],
 	},
 	{
 		title: "Features",
 		links: [
-			{ label: "Video Lessons", href: "/features/video-lessons" },
-			{ label: "Flashcards", href: "/features/flashcards" },
-			{ label: "Revision Notes", href: "/features/revision-notes" },
-			{ label: "Quizzes", href: "/features/quizzes" },
-			{ label: "Past Papers", href: "/features/past-papers" },
+			{ label: "Video Lessons", href: `${COGNITO_BASE}/features/video-lessons` },
+			{ label: "Flashcards", href: `${COGNITO_BASE}/features/flashcards` },
+			{ label: "Revision Notes", href: `${COGNITO_BASE}/features/revision-notes` },
+			{ label: "Quizzes", href: `${COGNITO_BASE}/features/quizzes` },
+			{ label: "Past Papers", href: `${COGNITO_BASE}/features/past-papers` },
 		],
 	},
 	{
 		title: "Resources",
 		links: [
 			{ label: "Blog", href: "/blog/theme/all" },
-			{ label: "Help Center", href: "/help" },
+			{ label: "Help Center", href: `${COGNITO_BASE}/help` },
 		],
 	},
 	{
 		title: "Company",
 		links: [
-			{ label: "About Us", href: "/about" },
-			{ label: "Team", href: "/team" },
-			{ label: "Pricing", href: "/pricing" },
-			{ label: "Careers", href: "/careers" },
-			{ label: "Contact", href: "/contact" },
-			{ label: "Terms", href: "/terms" },
-			{ label: "Privacy", href: "/privacy" },
-			{ label: "Cookies", href: "/cookies" },
+			{ label: "About Us", href: `${COGNITO_BASE}/about` },
+			{ label: "Team", href: `${COGNITO_BASE}/team` },
+			{ label: "Pricing", href: `${COGNITO_BASE}/pricing` },
+			{ label: "Careers", href: `${COGNITO_BASE}/careers` },
+			{ label: "Contact", href: `${COGNITO_BASE}/contact` },
+			{ label: "Terms", href: `${COGNITO_BASE}/terms` },
+			{ label: "Privacy", href: `${COGNITO_BASE}/privacy` },
+			{ label: "Cookies", href: `${COGNITO_BASE}/cookies` },
 		],
 	},
 ];
@@ -51,50 +53,69 @@ const courseColumns: FooterColumn[] = [
 	{
 		title: "Concepts",
 		links: [
-			{ label: "Biology", href: "/concepts/biology" },
-			{ label: "Chemistry", href: "/concepts/chemistry" },
-			{ label: "Physics", href: "/concepts/physics" },
-			{ label: "Mathematics", href: "/concepts/mathematics" },
-			{ label: "English Language", href: "/concepts/english-language" },
-			{ label: "English Literature", href: "/concepts/english-literature" },
-			{ label: "See all >", href: "/concepts" },
+			{ label: "Biology", href: `${COGNITO_BASE}/concepts/biology` },
+			{ label: "Chemistry", href: `${COGNITO_BASE}/concepts/chemistry` },
+			{ label: "Physics", href: `${COGNITO_BASE}/concepts/physics` },
+			{ label: "Mathematics", href: `${COGNITO_BASE}/concepts/mathematics` },
+			{ label: "English Language", href: `${COGNITO_BASE}/concepts/english-language` },
+			{ label: "English Literature", href: `${COGNITO_BASE}/concepts/english-literature` },
+			{ label: "See all >", href: `${COGNITO_BASE}/concepts` },
 		],
 	},
 	{
 		title: "A-Level",
 		links: [
-			{ label: "A-Level Biology", href: "/a-level/biology" },
-			{ label: "A-Level Chemistry", href: "/a-level/chemistry" },
-			{ label: "A-Level Physics", href: "/a-level/physics" },
-			{ label: "A-Level Mathematics", href: "/a-level/mathematics" },
-			{ label: "A-Level English Language", href: "/a-level/english-language" },
-			{ label: "A-Level English Literature", href: "/a-level/english-literature" },
-			{ label: "See all >", href: "/a-level" },
+			{ label: "A-Level Biology", href: `${COGNITO_BASE}/a-level/biology` },
+			{ label: "A-Level Chemistry", href: `${COGNITO_BASE}/a-level/chemistry` },
+			{ label: "A-Level Physics", href: `${COGNITO_BASE}/a-level/physics` },
+			{ label: "A-Level Mathematics", href: `${COGNITO_BASE}/a-level/mathematics` },
+			{ label: "A-Level English Language", href: `${COGNITO_BASE}/a-level/english-language` },
+			{ label: "A-Level English Literature", href: `${COGNITO_BASE}/a-level/english-literature` },
+			{ label: "See all >", href: `${COGNITO_BASE}/a-level` },
 		],
 	},
 	{
 		title: "GCSE",
 		links: [
-			{ label: "GCSE Biology", href: "/gcse/biology" },
-			{ label: "GCSE Chemistry", href: "/gcse/chemistry" },
-			{ label: "GCSE Physics", href: "/gcse/physics" },
-			{ label: "GCSE Mathematics", href: "/gcse/mathematics" },
-			{ label: "GCSE English Language", href: "/gcse/english-language" },
-			{ label: "GCSE English Literature", href: "/gcse/english-literature" },
-			{ label: "See all >", href: "/gcse" },
+			{ label: "GCSE Biology", href: `${COGNITO_BASE}/gcse/biology` },
+			{ label: "GCSE Chemistry", href: `${COGNITO_BASE}/gcse/chemistry` },
+			{ label: "GCSE Physics", href: `${COGNITO_BASE}/gcse/physics` },
+			{ label: "GCSE Mathematics", href: `${COGNITO_BASE}/gcse/mathematics` },
+			{ label: "GCSE English Language", href: `${COGNITO_BASE}/gcse/english-language` },
+			{ label: "GCSE English Literature", href: `${COGNITO_BASE}/gcse/english-literature` },
+			{ label: "See all >", href: `${COGNITO_BASE}/gcse` },
 		],
 	},
 	{
 		title: "Other Courses",
 		links: [
-			{ label: "KS3", href: "/courses/ks3" },
-			{ label: "IB", href: "/courses/ib" },
-			{ label: "Entrance Exams", href: "/courses/entrance-exams" },
-			{ label: "US Sciences", href: "/courses/us-sciences" },
-			{ label: "US AP", href: "/courses/us-ap" },
+			{ label: "KS3", href: `${COGNITO_BASE}/courses/ks3` },
+			{ label: "IB", href: `${COGNITO_BASE}/courses/ib` },
+			{ label: "Entrance Exams", href: `${COGNITO_BASE}/courses/entrance-exams` },
+			{ label: "US Sciences", href: `${COGNITO_BASE}/courses/us-sciences` },
+			{ label: "US AP", href: `${COGNITO_BASE}/courses/us-ap` },
 		],
 	},
 ];
+
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+	const isExternal = href.startsWith("http");
+	const className = "font-body text-sm text-footer-text hover:text-white transition-colors";
+
+	if (isExternal) {
+		return (
+			<a href={href} className={className}>
+				{children}
+			</a>
+		);
+	}
+
+	return (
+		<Link href={href} className={className}>
+			{children}
+		</Link>
+	);
+}
 
 function ColumnGroup({ columns }: { columns: FooterColumn[] }) {
 	return (
@@ -107,12 +128,7 @@ function ColumnGroup({ columns }: { columns: FooterColumn[] }) {
 					<ul className="flex flex-col gap-2.5">
 						{col.links.map((link) => (
 							<li key={link.label}>
-								<Link
-									href={link.href}
-									className="font-body text-sm text-footer-text hover:text-white transition-colors"
-								>
-									{link.label}
-								</Link>
+								<FooterLink href={link.href}>{link.label}</FooterLink>
 							</li>
 						))}
 					</ul>

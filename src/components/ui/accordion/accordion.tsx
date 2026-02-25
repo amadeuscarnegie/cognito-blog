@@ -32,7 +32,7 @@ export function Accordion({ items, className }: AccordionProps) {
 						<span className="font-heading font-semibold text-lg leading-[1.2] text-text-primary text-left">
 							{item.question}
 						</span>
-						<ChevronDown className="h-8 w-8 flex-shrink-0 text-text-primary transition-transform duration-200 group-data-[state=open]:rotate-180" />
+						<ChevronDown className="h-5 w-5 flex-shrink-0 text-text-primary transition-transform duration-200 group-data-[state=open]:rotate-180" />
 					</AccordionPrimitive.Trigger>
 					<AccordionPrimitive.Content
 						data-accordion-content=""

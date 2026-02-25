@@ -1,0 +1,211 @@
+{
+	"title": "Top 10 revision mistakes students make",
+	"slug": "top-10-revision-mistakes",
+	"excerpt": "Are you guilty of these common revision blunders? From cramming the night before to ignoring mark schemes, here are the 10 mistakes holding you back — and how to fix them.",
+	"date": "2026-02-15",
+	"lastUpdated": null,
+	"published": true,
+	"author": {
+		"name": "Emily Clark",
+		"avatarUrl": "/assets/authors/emily.jpg"
+	},
+	"tags": {
+		"level": [
+			"GCSE",
+			"A-Level"
+		],
+		"subject": [],
+		"theme": [
+			"study-tips"
+		],
+		"audience": [
+			"Students"
+		]
+	},
+	"thumbnailUrl": "/assets/Thumbnail-variant-1.png",
+	"illustrationUrl": "/assets/thumbnails/cyan-dice.png",
+	"thumbnailBg": "#e0f2f1",
+	"heroImageUrl": "/assets/Thumbnail-variant-1.png",
+	"readingTime": 4,
+	"sections": [
+		{
+			"type": "text",
+			"content": "## You're probably making at least three of these\n\nRevision season is stressful enough without sabotaging yourself with habits that feel productive but actually waste your time. The frustrating part? Most students don't realise they're doing anything wrong — they just wonder why nothing sticks.\n\nWe've rounded up the 10 most common revision mistakes based on what cognitive science tells us about how memory works. The good news: every single one is fixable."
+		},
+		{
+			"type": "alert",
+			"variant": "warning",
+			"title": "Quick self-check",
+			"content": "Read through all 10 mistakes before deciding your revision is fine. Most students recognise themselves in at least 3–4 of these."
+		},
+		{
+			"type": "text",
+			"content": "## The 10 biggest revision mistakes\n\n### 1. Cramming everything the night before\n\nYour brain consolidates memories during sleep and over time. Cramming might get you through a vocabulary test, but for GCSEs and A-Levels — where you need to retain months of material — it's a disaster. Spaced repetition (reviewing material at increasing intervals) beats cramming every time.\n\n### 2. Re-reading notes instead of testing yourself\n\nRe-reading feels comfortable because the material looks familiar. But recognition is not the same as recall. If you can't reproduce the information from a blank page, you haven't learned it. Switch to active recall — close your notes, write down what you remember, then check.\n\n### 3. Highlighting everything\n\nHighlighting is one of the least effective study methods. It gives you the illusion of engagement while your brain stays on autopilot. If you must highlight, limit yourself to one sentence per page — and then turn that sentence into a flashcard question.\n\n### 4. Not using past papers\n\nPast papers are the closest thing to a cheat code for exams. They show you exactly how questions are phrased, how marks are allocated, and which topics come up repeatedly. Aim to complete at least 3–4 past papers per subject before exam day."
+		},
+		{
+			"type": "image",
+			"src": "/assets/Thumbnail-variant-1.png",
+			"alt": "Student reviewing past papers at a desk",
+			"caption": "Past papers are one of the most underused — and most effective — revision tools",
+			"variant": "full"
+		},
+		{
+			"type": "text",
+			"content": "### 5. Only revising your favourite topics\n\nIt's human nature to gravitate toward what you already know. But spending two hours perfecting a topic you'd already score 8/10 on is far less valuable than spending that time on a topic where you're at 3/10. Target your weak spots — that's where the marks are.\n\n### 6. Revising for hours without breaks\n\nMarathon sessions don't equal better results. After about 45–50 minutes, your concentration drops sharply. Use the Pomodoro technique: 25 minutes of focused work, then a 5-minute break. After four rounds, take a longer break of 15–20 minutes.\n\n### 7. Having no revision plan or timetable\n\nWithout a plan, you'll either revise the same topics on repeat or avoid entire subjects until it's too late. A simple timetable — even a rough one — ensures you cover everything and helps you track your progress.\n\n### 8. Not sleeping enough\n\nSleep is when your brain consolidates what you've learned into long-term memory. Cutting sleep to squeeze in extra revision is counterproductive — you'll remember less, concentrate less, and feel worse. Aim for 8–9 hours, especially during exam season.\n\n### 9. Copying notes passively\n\nRewriting your notes in prettier handwriting or colour-coding everything feels productive, but unless you're transforming the material (summarising in your own words, creating diagrams from memory), you're just doing admin, not learning.\n\n### 10. Ignoring mark schemes\n\nMark schemes tell you exactly what examiners want to see. Students who never read them keep losing marks for the same reasons — missing key terminology, not showing working, or writing vague answers. After every past paper, check the mark scheme and note what you missed."
+		},
+		{
+			"type": "alert",
+			"variant": "tip",
+			"title": "The mark scheme hack",
+			"content": "After completing a past paper, mark it yourself using the official mark scheme. This teaches you to think like an examiner and spots patterns in how marks are awarded."
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "table",
+			"headers": [
+				"Bad habit",
+				"Why it fails",
+				"What to do instead"
+			],
+			"rows": [
+				[
+					"Cramming the night before",
+					"No time for memory consolidation",
+					"Space revision over weeks"
+				],
+				[
+					"Re-reading notes",
+					"Recognition ≠ recall",
+					"Test yourself with active recall"
+				],
+				[
+					"Highlighting everything",
+					"Passive — brain stays on autopilot",
+					"Turn highlights into flashcard questions"
+				],
+				[
+					"Skipping past papers",
+					"Miss exam format and question styles",
+					"Do 3–4 past papers per subject"
+				],
+				[
+					"Only revising easy topics",
+					"Diminishing returns on strong areas",
+					"Prioritise weak topics for max gain"
+				],
+				[
+					"No breaks",
+					"Concentration drops after ~45 mins",
+					"Use Pomodoro (25 min on, 5 min off)"
+				],
+				[
+					"No timetable",
+					"Gaps in coverage, repeated topics",
+					"Plan subjects across the week"
+				],
+				[
+					"Cutting sleep",
+					"Brain can't consolidate memories",
+					"Protect 8–9 hours every night"
+				],
+				[
+					"Copying notes prettily",
+					"Admin, not learning",
+					"Summarise from memory instead"
+				],
+				[
+					"Ignoring mark schemes",
+					"Keep losing marks for same reasons",
+					"Self-mark every past paper"
+				]
+			]
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "text",
+			"content": "## How to fix your revision starting today\n\nYou don't need to overhaul everything at once. Pick the 2–3 mistakes you're most guilty of and focus on fixing those first. Small changes — like adding one past paper a week or setting a phone timer for Pomodoro sessions — compound into big results over time."
+		},
+		{
+			"type": "checklist",
+			"title": "Your revision reset checklist",
+			"description": "Work through these action items this week to get your revision back on track:",
+			"items": [
+				"Swap re-reading for active recall (blank page method or flashcards)",
+				"Download past papers from your exam board's website",
+				"Create a weekly revision timetable covering all subjects",
+				"Set a timer — no more than 50 minutes without a break",
+				"Identify your 3 weakest topics per subject and prioritise them",
+				"Read the mark scheme after every past paper you complete",
+				"Set a non-negotiable bedtime for exam season (8–9 hours sleep)",
+				"Replace note-copying with summarising from memory"
+			]
+		},
+		{
+			"type": "benefits",
+			"items": [
+				{
+					"icon": "brain",
+					"title": "Better retention",
+					"description": "Active recall and spaced repetition build stronger, longer-lasting memories."
+				},
+				{
+					"icon": "target",
+					"title": "Higher marks",
+					"description": "Using past papers and mark schemes trains you to give examiners exactly what they want."
+				},
+				{
+					"icon": "clock",
+					"title": "Less wasted time",
+					"description": "Cutting passive methods means fewer hours for better results."
+				},
+				{
+					"icon": "heart",
+					"title": "Less stress",
+					"description": "A solid plan and proven techniques replace panic with confidence."
+				}
+			]
+		},
+		{
+			"type": "accordion",
+			"title": "Common questions",
+			"items": [
+				{
+					"title": "I've been cramming all year — is it too late to change?",
+					"content": "Not at all. Even switching to active recall and past papers in the last 2–3 weeks before exams makes a measurable difference. Start with your weakest subjects where there's the most room for improvement."
+				},
+				{
+					"title": "How do I make a revision timetable that actually works?",
+					"content": "Keep it simple. List every subject and topic, then spread them across your available days so you revisit each topic at least twice. Build in rest days and be realistic about how many hours you can focus. A timetable you actually follow beats a perfect one you abandon."
+				},
+				{
+					"title": "Are revision guides and YouTube videos a waste of time?",
+					"content": "They're useful for understanding a topic you're stuck on, but they shouldn't be your main revision method. Watching a video is passive — you need to follow it up with active recall to lock the information in. Think of videos as step one, not the whole process."
+				}
+			]
+		},
+		{
+			"type": "cta",
+			"variant": "large",
+			"title": "Revise smarter with Cognito",
+			"description": "Free videos, quizzes and flashcards designed around the techniques that actually work. Join thousands of GCSE and A-Level students already using Cognito.",
+			"buttonText": "Start revising for free",
+			"buttonUrl": "https://cognito.org/signup"
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "related-content",
+			"title": "Related articles",
+			"slugs": [
+				"how-to-revise-effectively-gcses",
+				"managing-exam-stress",
+				"understanding-photosynthesis"
+			]
+		}
+	]
+}

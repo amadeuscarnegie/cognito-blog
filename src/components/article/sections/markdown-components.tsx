@@ -54,7 +54,7 @@ export const markdownComponents: Components = {
 		return (
 			<a
 				href={href}
-				className="text-border-brand underline"
+				className="text-border-brand hover:underline"
 				{...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
 			>
 				{children}
@@ -66,7 +66,7 @@ export const markdownComponents: Components = {
 	),
 	em: ({ children }) => <em className="italic">{children}</em>,
 	blockquote: ({ children }) => (
-		<blockquote className="border-l-[3px] border-border-brand pl-4 italic text-text-secondary">
+		<blockquote className="border-l-[4px] border-border-brand bg-[#f8fafc] rounded-r-md pl-4 pr-4 py-3 italic text-text-secondary">
 			{children}
 		</blockquote>
 	),

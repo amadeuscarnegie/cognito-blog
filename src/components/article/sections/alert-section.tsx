@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 import type { AlertSection as AlertSectionType } from "@/types/article";
 
 const alertVariants = cva(
-	"flex gap-3 rounded-md p-4 border-l-[3px]",
+	"flex gap-3 rounded-md p-4 border-l-[4px]",
 	{
 		variants: {
 			variant: {
@@ -44,7 +44,7 @@ export function AlertSection({ variant, title, content }: AlertSectionType) {
 		<div className={alertVariants({ variant })}>
 			<Icon className={`h-5 w-5 flex-shrink-0 mt-0.5 ${iconColor}`} />
 			<div className="flex flex-col gap-1">
-				<p className="font-heading font-semibold text-base leading-[1.3] text-text-primary">
+				<p className="font-body font-bold text-base leading-[1.3] text-text-primary">
 					{title}
 				</p>
 				<p className="font-body font-medium text-sm leading-[1.6] text-text-primary">

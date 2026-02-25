@@ -8,7 +8,7 @@ export function BenefitsSection({ items }: BenefitsSectionType) {
 				const Icon = iconMap[item.icon] ?? fallbackIcon;
 				return (
 					<div key={i} className="flex items-start gap-4">
-						<div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-bg-secondary border border-border-quaternary">
+						<div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#d1eafd]">
 							<Icon className="h-5 w-5 text-border-brand" />
 						</div>
 						<div className="flex flex-col gap-1">

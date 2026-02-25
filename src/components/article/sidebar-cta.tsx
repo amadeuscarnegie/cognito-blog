@@ -1,8 +1,16 @@
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 export function SidebarCTA() {
 	return (
-		<div className="bg-bg-secondary rounded-lg p-6 flex flex-col gap-3">
+		<div className="relative overflow-hidden bg-bg-secondary rounded-lg p-6 flex flex-col gap-3">
+			<Image
+				src="/assets/thumbnails/fox.png"
+				alt=""
+				width={64}
+				height={64}
+				className="absolute -top-2 -right-2 w-16 h-16 opacity-80"
+			/>
 			<span className="font-body font-bold text-xs uppercase tracking-wider text-border-brand">
 				Free account
 			</span>
