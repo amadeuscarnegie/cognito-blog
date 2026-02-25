@@ -10,10 +10,16 @@
 		"avatarUrl": "/assets/authors/emily.jpg"
 	},
 	"tags": {
-		"level": ["GCSE"],
+		"level": [
+			"GCSE"
+		],
 		"subject": [],
-		"theme": ["study-tips"],
-		"audience": ["Students"]
+		"theme": [
+			"study-tips"
+		],
+		"audience": [
+			"Students"
+		]
 	},
 	"thumbnailUrl": "/assets/Thumbnail-variant-1.png",
 	"illustrationUrl": "/assets/thumbnails/fox.png",
@@ -48,14 +54,49 @@
 		},
 		{
 			"type": "table",
-			"headers": ["Method", "Effectiveness", "Time required", "Best for"],
+			"headers": [
+				"Method",
+				"Effectiveness",
+				"Time required",
+				"Best for"
+			],
 			"rows": [
-				["Active recall", "Very high", "Medium", "All subjects"],
-				["Spaced repetition", "Very high", "Low", "Memorisation-heavy subjects"],
-				["Practice papers", "High", "Medium-High", "Exam technique"],
-				["Mind maps", "Medium", "Medium", "Visual learners"],
-				["Re-reading notes", "Low", "High", "Not recommended"],
-				["Highlighting", "Very low", "Low", "Not recommended"]
+				[
+					"Active recall",
+					"Very high",
+					"Medium",
+					"All subjects"
+				],
+				[
+					"Spaced repetition",
+					"Very high",
+					"Low",
+					"Memorisation-heavy subjects"
+				],
+				[
+					"Practice papers",
+					"High",
+					"Medium-High",
+					"Exam technique"
+				],
+				[
+					"Mind maps",
+					"Medium",
+					"Medium",
+					"Visual learners"
+				],
+				[
+					"Re-reading notes",
+					"Low",
+					"High",
+					"Not recommended"
+				],
+				[
+					"Highlighting",
+					"Very low",
+					"Low",
+					"Not recommended"
+				]
 			]
 		},
 		{
@@ -80,11 +121,6 @@
 					"icon": "zap",
 					"title": "Boosts confidence",
 					"description": "Knowing you've used proven methods reduces exam anxiety."
-				},
-				{
-					"icon": "unknown-icon",
-					"title": "Fallback icon test",
-					"description": "This item uses an unknown icon name to test the CircleDot fallback."
 				}
 			]
 		},
@@ -109,24 +145,6 @@
 			"variant": "info",
 			"title": "Where to find past papers",
 			"content": "Your exam board's website has free past papers and mark schemes. AQA, Edexcel, and OCR all offer these in their resources section."
-		},
-		{
-			"type": "alert",
-			"variant": "success",
-			"title": "You're on the right track",
-			"content": "If you're reading this guide, you're already ahead of most students. The fact that you're thinking about how to revise — not just what to revise — is a great sign."
-		},
-		{
-			"type": "alert",
-			"variant": "error",
-			"title": "Common mistake",
-			"content": "Don't try to revise for more than 45 minutes without a break. Your brain needs rest to consolidate new information."
-		},
-		{
-			"type": "alert",
-			"variant": "warning",
-			"title": "Watch out for passive revision",
-			"content": "Watching YouTube videos or reading revision guides without testing yourself feels productive but leads to poor recall in exams."
 		},
 		{
 			"type": "image",

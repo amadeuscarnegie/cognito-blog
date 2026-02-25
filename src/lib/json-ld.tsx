@@ -1,4 +1,5 @@
 import type { FAQ } from "@/types/blog";
+import type { ArticleData } from "@/types/article";
 import { BASE_URL } from "@/lib/constants";
 
 type JsonLdData = Record<string, unknown>;
@@ -56,6 +57,34 @@ export function faqPageJsonLd(faqs: FAQ[]): JsonLdData {
 				text: faq.answer,
 			},
 		})),
+	};
+}
+
+export function articleJsonLd(article: ArticleData): JsonLdData {
+	return {
+		"@context": "https://schema.org",
+		"@type": "Article",
+		headline: article.title,
+		description: article.excerpt,
+		image: article.heroImageUrl.startsWith("http")
+			? article.heroImageUrl
+			: `${BASE_URL}${article.heroImageUrl}`,
+		author: {
+			"@type": "Person",
+			name: article.author.name,
+		},
+		datePublished: article.date,
+		...(article.lastUpdated ? { dateModified: article.lastUpdated } : {}),
+		publisher: {
+			"@type": "EducationalOrganization",
+			name: "Cognito",
+			url: BASE_URL,
+			logo: `${BASE_URL}/favicon.ico`,
+		},
+		mainEntityOfPage: {
+			"@type": "WebPage",
+			"@id": `${BASE_URL}/blog/${article.slug}`,
+		},
 	};
 }
 
