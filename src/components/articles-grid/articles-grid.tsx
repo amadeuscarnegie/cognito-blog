@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container } from "@/components/layout/container";
 import { ArticleCard } from "./article-card";
 import { LoadMoreButton } from "./load-more-button";
@@ -16,6 +16,11 @@ const LOAD_MORE_COUNT = 6;
 
 export function ArticlesGrid({ articles, tabId }: ArticlesGridProps) {
 	const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
+
+	useEffect(() => {
+		setVisibleCount(INITIAL_COUNT);
+	}, [articles]);
+
 	const visibleArticles = articles.slice(0, visibleCount);
 	const hasMore = visibleCount < articles.length;
 

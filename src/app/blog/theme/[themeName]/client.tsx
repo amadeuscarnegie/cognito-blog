@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useDeferredValue } from "react";
 import { useRouter } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
@@ -27,6 +27,7 @@ export function BlogThemeClient({
 	const router = useRouter();
 	const [activeTheme, setActiveTheme] = useState(initialTheme.slug);
 	const [searchQuery, setSearchQuery] = useState("");
+	const deferredSearchQuery = useDeferredValue(searchQuery);
 	const [modalOpen, setModalOpen] = useState(false);
 	const [modalPath, setModalPath] = useState("");
 
@@ -39,19 +40,17 @@ export function BlogThemeClient({
 		let result = allArticles;
 
 		if (activeTheme !== "all") {
-			result = result.filter(
-				(a) => a.theme.toLowerCase() === currentTheme.name.toLowerCase(),
-			);
+			result = result.filter((a) => a.themeSlug === activeTheme);
 		}
 
-		if (searchQuery) {
+		if (deferredSearchQuery) {
 			result = result.filter((a) =>
-				a.title.toLowerCase().includes(searchQuery.toLowerCase()),
+				a.title.toLowerCase().includes(deferredSearchQuery.toLowerCase()),
 			);
 		}
 
 		return result;
-	}, [allArticles, activeTheme, currentTheme.name, searchQuery]);
+	}, [allArticles, activeTheme, deferredSearchQuery]);
 
 	const handleThemeChange = (slug: string) => {
 		setActiveTheme(slug);
@@ -89,7 +88,7 @@ export function BlogThemeClient({
 						searchQuery={searchQuery}
 						onSearchChange={setSearchQuery}
 					/>
-					<ArticlesGrid key={activeTheme} articles={filteredArticles} tabId={`blog-tab-${activeTheme}`} />
+					<ArticlesGrid articles={filteredArticles} tabId={`blog-tab-${activeTheme}`} />
 					<SectionDivider />
 					<FAQsSection />
 					<FooterCTA />

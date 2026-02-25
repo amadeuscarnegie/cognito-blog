@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CardImage } from "./card-image";
 import { CardMeta } from "./card-meta";
+import { themeNameFromSlug } from "@/lib/content-data";
 import type { Article } from "@/types/blog";
 
 interface ArticleCardProps {
@@ -21,7 +22,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
 				className="w-[100px] h-[100px] lg:w-full lg:h-auto"
 			/>
 			<div className="flex flex-col gap-2 lg:pt-4">
-				<CardMeta theme={article.theme} readingTime={article.readingTime} />
+				<CardMeta theme={themeNameFromSlug(article.themeSlug)} readingTime={article.readingTime} />
 				<h3 className="font-heading font-semibold text-[17px] lg:text-xl leading-[1.2] text-text-primary">
 					{article.title}
 				</h3>

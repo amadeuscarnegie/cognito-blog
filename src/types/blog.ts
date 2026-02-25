@@ -1,10 +1,10 @@
-export type ArticleTheme = "Study tips" | "Science" | "Maths" | "Wellbeing";
+export type ThemeSlug = "study-tips" | "science" | "maths" | "wellbeing";
 
 export interface Article {
 	id: string;
 	title: string;
 	slug: string;
-	theme: ArticleTheme;
+	themeSlug: ThemeSlug;
 	readingTime: number;
 	thumbnailUrl: string;
 	illustrationUrl?: string;

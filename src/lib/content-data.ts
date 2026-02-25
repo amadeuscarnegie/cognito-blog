@@ -1,4 +1,4 @@
-import type { Article, FAQ, Theme } from "@/types/blog";
+import type { Article, FAQ, Theme, ThemeSlug } from "@/types/blog";
 
 export const themes: Theme[] = [
 	{
@@ -43,7 +43,7 @@ export const articles: Article[] = [
 		id: "1",
 		title: "How to revise effectively for your GCSEs",
 		slug: "how-to-revise-effectively-gcses",
-		theme: "Study tips",
+		themeSlug: "study-tips",
 		readingTime: 5,
 		thumbnailUrl: "/assets/Thumbnail-variant-1.png",
 		illustrationUrl: "/assets/thumbnails/fox.png",
@@ -53,7 +53,7 @@ export const articles: Article[] = [
 		id: "2",
 		title: "Understanding photosynthesis: A complete guide",
 		slug: "understanding-photosynthesis",
-		theme: "Science",
+		themeSlug: "science",
 		readingTime: 7,
 		thumbnailUrl: "/assets/Thumbnail-variant-2.png",
 		illustrationUrl: "/assets/thumbnails/lungs.png",
@@ -63,7 +63,7 @@ export const articles: Article[] = [
 		id: "3",
 		title: "Top 10 revision mistakes students make",
 		slug: "top-10-revision-mistakes",
-		theme: "Study tips",
+		themeSlug: "study-tips",
 		readingTime: 4,
 		thumbnailUrl: "/assets/Thumbnail-variant-1.png",
 		illustrationUrl: "/assets/thumbnails/cyan-dice.png",
@@ -73,7 +73,7 @@ export const articles: Article[] = [
 		id: "4",
 		title: "How to solve quadratic equations step by step",
 		slug: "solve-quadratic-equations",
-		theme: "Maths",
+		themeSlug: "maths",
 		readingTime: 6,
 		thumbnailUrl: "/assets/Thumbnail-variant-2.png",
 		illustrationUrl: "/assets/thumbnails/disc-brake.png",
@@ -83,7 +83,7 @@ export const articles: Article[] = [
 		id: "5",
 		title: "Managing exam stress and anxiety",
 		slug: "managing-exam-stress",
-		theme: "Wellbeing",
+		themeSlug: "wellbeing",
 		readingTime: 5,
 		thumbnailUrl: "/assets/Thumbnail-variant-1.png",
 		illustrationUrl: "/assets/thumbnails/labrador.png",
@@ -93,7 +93,7 @@ export const articles: Article[] = [
 		id: "6",
 		title: "The periodic table explained simply",
 		slug: "periodic-table-explained",
-		theme: "Science",
+		themeSlug: "science",
 		readingTime: 8,
 		thumbnailUrl: "/assets/Thumbnail-variant-2.png",
 		illustrationUrl: "/assets/thumbnails/heart.png",
@@ -103,7 +103,7 @@ export const articles: Article[] = [
 		id: "7",
 		title: "Creating the perfect revision timetable",
 		slug: "perfect-revision-timetable",
-		theme: "Study tips",
+		themeSlug: "study-tips",
 		readingTime: 4,
 		thumbnailUrl: "/assets/Thumbnail-variant-1.png",
 		illustrationUrl: "/assets/thumbnails/cyan-mask.png",
@@ -113,7 +113,7 @@ export const articles: Article[] = [
 		id: "8",
 		title: "Trigonometry basics you need to know",
 		slug: "trigonometry-basics",
-		theme: "Maths",
+		themeSlug: "maths",
 		readingTime: 6,
 		thumbnailUrl: "/assets/Thumbnail-variant-2.png",
 	},
@@ -121,7 +121,7 @@ export const articles: Article[] = [
 		id: "9",
 		title: "How to stay motivated during revision",
 		slug: "stay-motivated-revision",
-		theme: "Wellbeing",
+		themeSlug: "wellbeing",
 		readingTime: 3,
 		thumbnailUrl: "/assets/Thumbnail-variant-1.png",
 	},
@@ -129,7 +129,7 @@ export const articles: Article[] = [
 		id: "10",
 		title: "Forces and motion: Key concepts for GCSE",
 		slug: "forces-motion-gcse",
-		theme: "Science",
+		themeSlug: "science",
 		readingTime: 7,
 		thumbnailUrl: "/assets/Thumbnail-variant-2.png",
 	},
@@ -137,7 +137,7 @@ export const articles: Article[] = [
 		id: "11",
 		title: "Active recall: The most effective study method",
 		slug: "active-recall-study-method",
-		theme: "Study tips",
+		themeSlug: "study-tips",
 		readingTime: 5,
 		thumbnailUrl: "/assets/Thumbnail-variant-1.png",
 	},
@@ -145,7 +145,7 @@ export const articles: Article[] = [
 		id: "12",
 		title: "Algebra foundations for year 10 and 11",
 		slug: "algebra-foundations",
-		theme: "Maths",
+		themeSlug: "maths",
 		readingTime: 6,
 		thumbnailUrl: "/assets/Thumbnail-variant-2.png",
 	},
@@ -153,7 +153,7 @@ export const articles: Article[] = [
 		id: "13",
 		title: "How to use flashcards effectively",
 		slug: "flashcards-effectively",
-		theme: "Study tips",
+		themeSlug: "study-tips",
 		readingTime: 4,
 		thumbnailUrl: "/assets/Thumbnail-variant-1.png",
 	},
@@ -161,11 +161,16 @@ export const articles: Article[] = [
 		id: "14",
 		title: "Cell biology fundamentals",
 		slug: "cell-biology-fundamentals",
-		theme: "Science",
+		themeSlug: "science",
 		readingTime: 7,
 		thumbnailUrl: "/assets/Thumbnail-variant-2.png",
 	},
 ];
+
+export function themeNameFromSlug(slug: ThemeSlug): string {
+	const theme = themes.find((t) => t.slug === slug);
+	return theme?.name ?? slug;
+}
 
 export const faqs: FAQ[] = [
 	{
