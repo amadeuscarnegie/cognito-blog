@@ -7,9 +7,9 @@ export const nunito = Nunito({
 	display: "swap",
 });
 
-export const stratford = Playfair_Display({
+export const playfairDisplay = Playfair_Display({
 	subsets: ["latin"],
-	weight: ["400", "500", "600"],
+	weight: ["600"],
 	variable: "--font-heading",
 	display: "swap",
 });

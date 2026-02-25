@@ -35,7 +35,10 @@ export function BlogNav({ themes, activeTheme, onThemeChange }: BlogNavProps) {
 		}
 
 		if (nextIndex !== null) {
-			onThemeChange(themes[nextIndex].slug);
+			const nextTheme = themes[nextIndex];
+			if (nextTheme) {
+				onThemeChange(nextTheme.slug);
+			}
 			const btn = e.currentTarget.querySelectorAll<HTMLButtonElement>('[role="tab"]')[nextIndex];
 			btn?.focus();
 		}

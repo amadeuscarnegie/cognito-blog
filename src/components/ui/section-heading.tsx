@@ -1,8 +1,7 @@
-import { type ElementType } from "react";
 import { cn } from "@/lib/cn";
 
 interface SectionHeadingProps {
-	as?: ElementType;
+	as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 	children: React.ReactNode;
 	className?: string;
 }

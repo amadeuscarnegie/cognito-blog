@@ -13,7 +13,7 @@ interface HeroIllustrationProps {
 }
 
 export function HeroIllustration({ themeSlug }: HeroIllustrationProps) {
-	const src = themeImageMap[themeSlug] ?? themeImageMap.all;
+	const src = themeImageMap[themeSlug] ?? themeImageMap.all ?? "/assets/hero-illustration.png";
 
 	return (
 		<div className="flex-shrink-0 w-[200px] lg:w-[300px] h-[75px] lg:h-[112px] flex items-end">

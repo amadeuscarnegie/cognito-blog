@@ -20,27 +20,30 @@ export function Nav() {
 				<div className="flex items-center gap-8">
 					<NavLogo />
 					<nav className="hidden lg:flex items-center gap-6">
-						{navItems.map((item) => (
-							<div key={item.label} className="relative">
-								<NavItem
-									label={item.label}
-									href={item.hasDropdown ? undefined : item.href}
-									hasDropdown={item.hasDropdown}
-									isExpanded={item.hasDropdown ? subNavOpen : undefined}
-									onClick={
-										item.hasDropdown
-											? () => setSubNavOpen((prev) => !prev)
-											: undefined
-									}
-								/>
-								{item.hasDropdown && (
-									<SubNav
-										isOpen={subNavOpen}
-										onClose={handleSubNavClose}
+						{navItems.map((item) => {
+							const isDropdown = "hasDropdown" in item;
+							return (
+								<div key={item.label} className="relative">
+									<NavItem
+										label={item.label}
+										href={isDropdown ? undefined : item.href}
+										hasDropdown={isDropdown || undefined}
+										isExpanded={isDropdown ? subNavOpen : undefined}
+										onClick={
+											isDropdown
+												? () => setSubNavOpen((prev) => !prev)
+												: undefined
+										}
 									/>
-								)}
-							</div>
-						))}
+									{isDropdown && (
+										<SubNav
+											isOpen={subNavOpen}
+											onClose={handleSubNavClose}
+										/>
+									)}
+								</div>
+							);
+						})}
 					</nav>
 				</div>
 

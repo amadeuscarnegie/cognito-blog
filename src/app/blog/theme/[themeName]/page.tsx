@@ -7,8 +7,7 @@ import {
 } from "@/lib/json-ld";
 import { BlogThemeClient } from "./client";
 import type { Metadata } from "next";
-
-const BASE_URL = "https://cognitolearning.co.uk";
+import { BASE_URL } from "@/lib/constants";
 
 export function generateStaticParams() {
 	return themes.map((t) => ({ themeName: t.slug }));

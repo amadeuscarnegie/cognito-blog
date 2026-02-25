@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { themes } from "@/lib/content-data";
-
-const BASE_URL = "https://cognitolearning.co.uk";
+import { BASE_URL } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
 	return [

@@ -50,7 +50,8 @@ function LanguageSelector() {
 			case " ":
 				e.preventDefault();
 				if (focusedIndex >= 0) {
-					setSelected(languages[focusedIndex]);
+					const lang = languages[focusedIndex];
+					if (lang) setSelected(lang);
 					setOpen(false);
 				}
 				break;

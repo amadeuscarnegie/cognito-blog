@@ -1,4 +1,5 @@
 import type { FAQ } from "@/types/blog";
+import { BASE_URL } from "@/lib/constants";
 
 type JsonLdData = Record<string, unknown>;
 
@@ -10,8 +11,6 @@ export function JsonLd({ data }: { data: JsonLdData }) {
 		/>
 	);
 }
-
-const BASE_URL = "https://cognitolearning.co.uk";
 
 export function organizationJsonLd(): JsonLdData {
 	return {

@@ -17,7 +17,7 @@
 	--color-shadow: rgba(11, 60, 97, 0.3);
 
 	/* ─── Fonts ─── */
-	--font-heading: var(--font-heading), "Stratford Serial", serif;
+	--font-heading: var(--font-heading), serif;
 	--font-body: var(--font-body), "Nunito", sans-serif;
 
 	/* ─── Footer ─── */

@@ -31,7 +31,7 @@ export function BlogThemeClient({
 	const [modalPath, setModalPath] = useState("");
 
 	const currentTheme = useMemo(
-		() => themes.find((t) => t.slug === activeTheme) ?? themes[0],
+		() => themes.find((t) => t.slug === activeTheme) ?? themes[0]!,
 		[activeTheme],
 	);
 

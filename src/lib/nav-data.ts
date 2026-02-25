@@ -1,4 +1,8 @@
-export const navItems = [
+type NavDropdownItem = { label: string; hasDropdown: true };
+type NavLinkItem = { label: string; href: string };
+export type NavItem = NavDropdownItem | NavLinkItem;
+
+export const navItems: NavItem[] = [
 	{ label: "Find my course", hasDropdown: true },
 	{ label: "Blog", href: "/blog/theme/all" },
 	{ label: "FAQ", href: "/faq" },
