@@ -1,0 +1,185 @@
+{
+	"title": "How to revise effectively for your GCSEs",
+	"slug": "how-to-revise-effectively-gcses",
+	"excerpt": "Discover proven revision techniques that actually work. From active recall to spaced repetition, learn how to make the most of your GCSE study time.",
+	"date": "2026-02-20",
+	"lastUpdated": null,
+	"published": true,
+	"author": {
+		"name": "Emily Clark",
+		"avatarUrl": "/assets/authors/emily.jpg"
+	},
+	"tags": {
+		"level": ["GCSE"],
+		"subject": [],
+		"theme": ["study-tips"],
+		"audience": ["Students"]
+	},
+	"thumbnailUrl": "/assets/Thumbnail-variant-1.png",
+	"illustrationUrl": "/assets/thumbnails/fox.png",
+	"thumbnailBg": "#fef3e2",
+	"heroImageUrl": "/assets/articles/how-to-revise-gcses/hero.jpg",
+	"readingTime": 5,
+	"sections": [
+		{
+			"type": "text",
+			"content": "## Why your revision method matters\n\nMost students spend hours re-reading notes and highlighting textbooks, but research shows these passive methods are among the least effective ways to learn. The good news? Switching to evidence-based techniques can dramatically improve your results without increasing your study time.\n\nIn this guide, we'll walk through the revision strategies that cognitive science has proven to work — and show you how to build them into your GCSE preparation."
+		},
+		{
+			"type": "alert",
+			"variant": "tip",
+			"title": "Start early",
+			"content": "Begin your revision at least 8–12 weeks before your first exam. This gives you enough time to use spaced repetition effectively."
+		},
+		{
+			"type": "text",
+			"content": "## Active recall: the single best technique\n\nActive recall means testing yourself on material rather than passively reviewing it. Every time you successfully retrieve information from memory, you strengthen the neural pathways that store it.\n\n### How to practise active recall\n\n- **Flashcards** — Write a question on one side and the answer on the other. Test yourself regularly.\n- **Practice questions** — Work through past papers and exam-style questions without looking at your notes.\n- **The blank page method** — Close your textbook, grab a blank sheet, and write down everything you can remember about a topic. Then check what you missed.\n\n> \"Students who practised active recall retained 50% more information after one week compared to those who simply re-read their notes.\" — Karpicke & Blunt, 2011"
+		},
+		{
+			"type": "image",
+			"src": "/assets/Thumbnail-variant-1.png",
+			"alt": "Diagram showing active recall vs passive review",
+			"caption": "Active recall significantly outperforms passive re-reading in long-term retention",
+			"variant": "full"
+		},
+		{
+			"type": "text",
+			"content": "## Spaced repetition: timing is everything\n\nSpaced repetition means reviewing material at gradually increasing intervals. Instead of cramming everything the night before, you spread your revision over days and weeks.\n\n### A simple spacing schedule\n\n1. Review new material the same day you learn it\n2. Review again after 1 day\n3. Review again after 3 days\n4. Review again after 7 days\n5. Review again after 14 days"
+		},
+		{
+			"type": "table",
+			"headers": ["Method", "Effectiveness", "Time required", "Best for"],
+			"rows": [
+				["Active recall", "Very high", "Medium", "All subjects"],
+				["Spaced repetition", "Very high", "Low", "Memorisation-heavy subjects"],
+				["Practice papers", "High", "Medium-High", "Exam technique"],
+				["Mind maps", "Medium", "Medium", "Visual learners"],
+				["Re-reading notes", "Low", "High", "Not recommended"],
+				["Highlighting", "Very low", "Low", "Not recommended"]
+			]
+		},
+		{
+			"type": "benefits",
+			"items": [
+				{
+					"icon": "brain",
+					"title": "Improves retention",
+					"description": "Active recall strengthens memory pathways more effectively than passive review."
+				},
+				{
+					"icon": "clock",
+					"title": "Saves time",
+					"description": "Spaced repetition means less total study time for better results."
+				},
+				{
+					"icon": "target",
+					"title": "Builds exam skills",
+					"description": "Practice questions develop the specific skills examiners are looking for."
+				},
+				{
+					"icon": "zap",
+					"title": "Boosts confidence",
+					"description": "Knowing you've used proven methods reduces exam anxiety."
+				},
+				{
+					"icon": "unknown-icon",
+					"title": "Fallback icon test",
+					"description": "This item uses an unknown icon name to test the CircleDot fallback."
+				}
+			]
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "checklist",
+			"title": "Before your first exam",
+			"description": "Make sure you've completed these essential steps:",
+			"items": [
+				"Review all past papers for your exam board",
+				"Create summary flashcards for each topic",
+				"Plan your exam day logistics (route, times, equipment)",
+				"Complete at least one timed practice paper per subject",
+				"Identify and revisit your weakest topics",
+				"Prepare your stationery and calculator"
+			]
+		},
+		{
+			"type": "alert",
+			"variant": "info",
+			"title": "Where to find past papers",
+			"content": "Your exam board's website has free past papers and mark schemes. AQA, Edexcel, and OCR all offer these in their resources section."
+		},
+		{
+			"type": "alert",
+			"variant": "success",
+			"title": "You're on the right track",
+			"content": "If you're reading this guide, you're already ahead of most students. The fact that you're thinking about how to revise — not just what to revise — is a great sign."
+		},
+		{
+			"type": "alert",
+			"variant": "error",
+			"title": "Common mistake",
+			"content": "Don't try to revise for more than 45 minutes without a break. Your brain needs rest to consolidate new information."
+		},
+		{
+			"type": "alert",
+			"variant": "warning",
+			"title": "Watch out for passive revision",
+			"content": "Watching YouTube videos or reading revision guides without testing yourself feels productive but leads to poor recall in exams."
+		},
+		{
+			"type": "image",
+			"src": "/assets/Thumbnail-variant-2.png",
+			"alt": "Student using spaced repetition flashcards",
+			"caption": "Flashcards work best when reviewed at spaced intervals",
+			"variant": "medium"
+		},
+		{
+			"type": "accordion",
+			"title": "Common questions about revision",
+			"items": [
+				{
+					"title": "How many hours a day should I revise?",
+					"content": "Quality matters more than quantity. Most students find 3–4 focused hours per day (with breaks) more effective than 8 hours of unfocused study. Use techniques like the Pomodoro method — 25 minutes of focused work followed by a 5-minute break."
+				},
+				{
+					"title": "Should I revise one subject at a time or mix them?",
+					"content": "Mixing subjects (called interleaving) is actually more effective than blocking. Alternating between topics forces your brain to practise retrieving different types of information, which strengthens your memory."
+				},
+				{
+					"title": "Is it better to revise in the morning or evening?",
+					"content": "This depends on your personal chronotype. Some students focus better in the morning, others in the evening. Experiment to find what works for you, and try to study at the same times each day to build a routine."
+				}
+			]
+		},
+		{
+			"type": "cta",
+			"variant": "large",
+			"title": "Ready to start revising?",
+			"description": "Join thousands of students using Cognito to ace their GCSEs with free videos, quizzes and interactive content.",
+			"buttonText": "Get started for free",
+			"buttonUrl": "https://cognito.org/signup"
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "cta",
+			"variant": "small",
+			"title": "Want more study tips?",
+			"description": "Check out our complete guide to creating the perfect revision timetable.",
+			"buttonText": "Read the guide",
+			"buttonUrl": "/blog/perfect-revision-timetable"
+		},
+		{
+			"type": "related-content",
+			"title": "Related articles",
+			"slugs": [
+				"understanding-photosynthesis",
+				"active-recall-study-method",
+				"top-10-revision-mistakes"
+			]
+		}
+	]
+}

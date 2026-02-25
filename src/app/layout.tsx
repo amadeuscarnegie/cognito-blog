@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { nunito, playfairDisplay } from "@/lib/fonts";
+import { nunito, lora } from "@/lib/fonts";
 import { JsonLd, organizationJsonLd, webSiteJsonLd } from "@/lib/json-ld";
 import { BASE_URL } from "@/lib/constants";
 import "./globals.css";
@@ -39,7 +39,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={`${nunito.variable} ${playfairDisplay.variable}`}>
+		<html lang="en" className={`${nunito.variable} ${lora.variable}`}>
 			<body className="overflow-x-hidden">
 				<JsonLd data={organizationJsonLd()} />
 				<JsonLd data={webSiteJsonLd()} />

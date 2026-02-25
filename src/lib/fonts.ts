@@ -1,4 +1,4 @@
-import { Nunito, Playfair_Display } from "next/font/google";
+import { Nunito, Lora } from "next/font/google";
 
 export const nunito = Nunito({
 	subsets: ["latin"],
@@ -7,9 +7,9 @@ export const nunito = Nunito({
 	display: "swap",
 });
 
-export const playfairDisplay = Playfair_Display({
+export const lora = Lora({
 	subsets: ["latin"],
-	weight: ["600"],
+	weight: ["400", "500", "600", "700"],
 	variable: "--font-heading",
 	display: "swap",
 });

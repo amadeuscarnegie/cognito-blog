@@ -1,0 +1,41 @@
+import {
+	Brain,
+	Clock,
+	Target,
+	Zap,
+	Star,
+	Heart,
+	Shield,
+	BookOpen,
+	Users,
+	TrendingUp,
+	Award,
+	Lightbulb,
+	Puzzle,
+	Rocket,
+	Eye,
+	ThumbsUp,
+	CircleDot,
+	type LucideIcon,
+} from "lucide-react";
+
+export const iconMap: Record<string, LucideIcon> = {
+	brain: Brain,
+	clock: Clock,
+	target: Target,
+	zap: Zap,
+	star: Star,
+	heart: Heart,
+	shield: Shield,
+	"book-open": BookOpen,
+	users: Users,
+	"trending-up": TrendingUp,
+	award: Award,
+	lightbulb: Lightbulb,
+	puzzle: Puzzle,
+	rocket: Rocket,
+	eye: Eye,
+	"thumbs-up": ThumbsUp,
+};
+
+export const fallbackIcon: LucideIcon = CircleDot;
