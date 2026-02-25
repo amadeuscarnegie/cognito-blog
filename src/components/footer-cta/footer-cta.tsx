@@ -1,23 +1,10 @@
-"use client";
-
-import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
 import { Container } from "@/components/layout/container";
 import { CTACard } from "./cta-card";
 
 export function FooterCTA() {
-	const sectionRef = useRef<HTMLElement>(null);
-	const { scrollYProgress } = useScroll({
-		target: sectionRef,
-		offset: ["start end", "end start"],
-	});
-
-	// Card moves down slightly as you scroll (parallax offset) — desktop only
-	const cardY = useTransform(scrollYProgress, [0, 1], ["-20px", "20px"]);
-
 	return (
-		<section ref={sectionRef} className="relative isolate pt-16 lg:pt-0">
+		<section className="relative isolate pt-16 lg:pt-0">
 			{/* ===== MOBILE / TABLET LAYOUT ===== */}
 			<div className="lg:hidden">
 				{/* Card in normal flow, z-10 so it sits above the overlapping image */}
@@ -54,9 +41,9 @@ export function FooterCTA() {
 				{/* CTA Card — absolutely positioned, centered on the illustration */}
 				<div className="absolute inset-x-0 -top-[6%] bottom-0 flex items-start justify-center z-10">
 					<Container>
-						<motion.div style={{ y: cardY }}>
+						<div>
 							<CTACard />
-						</motion.div>
+						</div>
 					</Container>
 				</div>
 			</div>

@@ -3,12 +3,12 @@ import { BlogNav } from "./blog-nav";
 import { HeroIllustration } from "./hero-illustration";
 import { SearchInput } from "@/components/ui/search-input";
 import { themes } from "@/lib/content-data";
-import type { Theme } from "@/types/blog";
+import type { Theme, ThemeFilterSlug } from "@/types/blog";
 
 interface BlogHeroProps {
 	currentTheme: Theme;
-	activeThemeSlug: string;
-	onThemeChange: (slug: string) => void;
+	activeThemeSlug: ThemeFilterSlug;
+	onThemeChange: (slug: ThemeFilterSlug) => void;
 	searchQuery: string;
 	onSearchChange: (query: string) => void;
 }

@@ -12,7 +12,7 @@ export default function NotFound() {
 		<main className="min-h-screen flex items-center justify-center">
 			<Container>
 				<div className="flex flex-col items-center text-center gap-6 py-20">
-					<p className="font-heading font-semibold text-lg text-[#0b3c61]">
+					<p className="font-heading font-semibold text-lg text-text-primary">
 						Cognito
 					</p>
 					<h1 className="font-heading font-semibold text-4xl lg:text-5xl text-text-primary">

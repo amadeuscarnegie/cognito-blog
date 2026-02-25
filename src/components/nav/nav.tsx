@@ -1,16 +1,10 @@
-"use client";
-
-import { useState, useCallback } from "react";
 import { NavLogo } from "./nav-logo";
 import { NavItem } from "./nav-item";
-import { SubNav } from "./sub-nav";
+import { NavDropdown } from "./nav-dropdown";
 import { Button } from "@/components/ui/button";
 import { navItems } from "@/lib/nav-data";
 
 export function Nav() {
-	const [subNavOpen, setSubNavOpen] = useState(false);
-	const handleSubNavClose = useCallback(() => setSubNavOpen(false), []);
-
 	return (
 		<header className="sticky top-0 z-50 bg-nav-bg border-b border-nav-border">
 			<div className="px-6 lg:px-20 w-full flex items-center justify-between h-[76px]">
@@ -19,27 +13,11 @@ export function Nav() {
 					<NavLogo />
 					<nav className="hidden lg:flex items-center gap-6">
 						{navItems.map((item) => {
-							const isDropdown = "hasDropdown" in item;
+							if ("hasDropdown" in item) {
+								return <NavDropdown key={item.label} label={item.label} />;
+							}
 							return (
-								<div key={item.label} className="relative">
-									<NavItem
-										label={item.label}
-										href={isDropdown ? undefined : item.href}
-										hasDropdown={isDropdown || undefined}
-										isExpanded={isDropdown ? subNavOpen : undefined}
-										onClick={
-											isDropdown
-												? () => setSubNavOpen((prev) => !prev)
-												: undefined
-										}
-									/>
-									{isDropdown && (
-										<SubNav
-											isOpen={subNavOpen}
-											onClose={handleSubNavClose}
-										/>
-									)}
-								</div>
+								<NavItem key={item.label} label={item.label} href={item.href} />
 							);
 						})}
 					</nav>

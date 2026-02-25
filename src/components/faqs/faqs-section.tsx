@@ -3,7 +3,6 @@ import { Container } from "@/components/layout/container";
 import { SectionLabel } from "@/components/ui/section-label";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionDescription } from "@/components/ui/section-description";
-import { ButtonGroup } from "@/components/ui/button-group";
 import { Button } from "@/components/ui/button";
 import { Accordion } from "@/components/ui/accordion/accordion";
 import { faqs } from "@/lib/content-data";
@@ -29,10 +28,10 @@ export function FAQsSection() {
 							Everything you need to know about Cognito, from getting started to
 							making the most of your revision.
 						</SectionDescription>
-						<ButtonGroup className="pt-2">
+						<div className="flex flex-row items-center gap-5 pt-2">
 							<Button variant="secondary">Visit our FAQ</Button>
 							<Button variant="ghost">Contact us</Button>
-						</ButtonGroup>
+						</div>
 					</div>
 
 					{/* Right - Accordion */}

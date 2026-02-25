@@ -1,13 +1,12 @@
 "use client";
 
-import { motion } from "motion/react";
 import { cn } from "@/lib/cn";
-import type { Theme } from "@/types/blog";
+import type { Theme, ThemeFilterSlug } from "@/types/blog";
 
 interface BlogNavProps {
 	themes: Theme[];
-	activeTheme: string;
-	onThemeChange: (slug: string) => void;
+	activeTheme: ThemeFilterSlug;
+	onThemeChange: (slug: ThemeFilterSlug) => void;
 }
 
 export function BlogNav({ themes, activeTheme, onThemeChange }: BlogNavProps) {
@@ -67,14 +66,8 @@ export function BlogNav({ themes, activeTheme, onThemeChange }: BlogNavProps) {
 					>
 						{theme.name}
 						{isActive && (
-							<motion.div
-								layoutId="blog-nav-indicator"
+							<div
 								className="absolute inset-0 bg-bg-secondary rounded-full -z-10"
-								transition={{
-									type: "spring",
-									stiffness: 500,
-									damping: 35,
-								}}
 							/>
 						)}
 					</button>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Container } from "@/components/layout/container";
 import { ArticleCard } from "./article-card";
-import { LoadMoreButton } from "./load-more-button";
+import { Button } from "@/components/ui/button";
 import type { Article } from "@/types/blog";
 
 interface ArticlesGridProps {
@@ -44,9 +44,11 @@ export function ArticlesGrid({ articles, tabId }: ArticlesGridProps) {
 					</p>
 				)}
 				{hasMore && (
-					<LoadMoreButton
-						onClick={() => setVisibleCount((prev) => prev + LOAD_MORE_COUNT)}
-					/>
+					<div className="flex justify-center pt-8 lg:pt-10">
+						<Button variant="secondary" onClick={() => setVisibleCount((prev) => prev + LOAD_MORE_COUNT)}>
+							Load more
+						</Button>
+					</div>
 				)}
 			</Container>
 		</section>

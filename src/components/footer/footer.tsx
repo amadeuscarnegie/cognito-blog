@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { FooterMainColumns, FooterCourseColumns } from "./footer-links";
 import { FooterSocial } from "./footer-social";
-import { LanguageSelector } from "./language-selector";
 
 export function Footer() {
 	return (
@@ -31,7 +30,6 @@ export function Footer() {
 							&copy; {new Date().getFullYear()} Cognito. All rights reserved.
 						</p>
 						<FooterSocial />
-						<LanguageSelector />
 					</div>
 
 					{/* Main link columns */}

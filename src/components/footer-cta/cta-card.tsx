@@ -3,7 +3,6 @@ import { SectionLabel } from "@/components/ui/section-label";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionDescription } from "@/components/ui/section-description";
 import { Button } from "@/components/ui/button";
-import { LoginLink } from "@/components/ui/login-link";
 
 export function CTACard() {
 	return (
@@ -26,7 +25,10 @@ export function CTACard() {
 						Get started - it&apos;s FREE
 					</Button>
 				</div>
-				<LoginLink />
+				<p className="font-body text-sm font-normal text-text-primary">
+					Already have an account?{" "}
+					<a href="/login" className="underline">Log in</a>
+				</p>
 			</div>
 		</div>
 	);

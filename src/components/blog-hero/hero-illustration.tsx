@@ -1,15 +1,16 @@
 import Image from "next/image";
+import type { ThemeFilterSlug } from "@/types/blog";
 
-const themeImageMap: Record<string, string> = {
+const themeImageMap = {
 	all: "/assets/hero-illustration.png",
 	"study-tips": "/assets/hero-laidback.png",
 	science: "/assets/hero-toilet.png",
 	maths: "/assets/hero-squished.png",
 	wellbeing: "/assets/hero-chair-light.png",
-};
+} satisfies Record<ThemeFilterSlug, string>;
 
 interface HeroIllustrationProps {
-	themeSlug: string;
+	themeSlug: ThemeFilterSlug;
 }
 
 export function HeroIllustration({ themeSlug }: HeroIllustrationProps) {

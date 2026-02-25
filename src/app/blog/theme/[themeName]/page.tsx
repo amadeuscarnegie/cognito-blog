@@ -55,10 +55,15 @@ export async function generateMetadata({
 
 export default async function BlogThemePage({
 	params,
+	searchParams,
 }: {
 	params: Promise<{ themeName: string }>;
+	searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
 	const { themeName } = await params;
+	const resolvedSearchParams = await searchParams;
+	const initialSearchQuery =
+		typeof resolvedSearchParams.q === "string" ? resolvedSearchParams.q : "";
 
 	const initialTheme = themes.find((t) => t.slug === themeName);
 	if (!initialTheme) notFound();
@@ -82,7 +87,7 @@ export default async function BlogThemePage({
 			<JsonLd data={faqPageJsonLd(faqs)} />
 			<Nav />
 			<main>
-				<BlogInteractive initialTheme={initialTheme} allArticles={articles} />
+				<BlogInteractive initialTheme={initialTheme} allArticles={articles} initialSearchQuery={initialSearchQuery} />
 				<SectionDivider />
 				<FAQsSection />
 				<FooterCTA />

@@ -7,7 +7,7 @@ const buttonVariants = cva(
 	{
 		variants: {
 			variant: {
-				primary: "bg-[#0b3c61] text-[#ecf7ff]",
+				primary: "bg-text-primary text-bg-secondary",
 				secondary:
 					"bg-transparent text-text-primary border-[1.5px] border-border-primary",
 				ghost: "bg-transparent text-text-primary",
@@ -28,6 +28,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
 function Button({ className, variant, icon, children, ref, ...props }: ButtonProps) {
 	return (
 		<button
+			type="button"
 			ref={ref}
 			className={cn(buttonVariants({ variant }), icon && "gap-2", className)}
 			{...props}

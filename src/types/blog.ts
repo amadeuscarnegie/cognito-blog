@@ -1,4 +1,5 @@
 export type ThemeSlug = "study-tips" | "science" | "maths" | "wellbeing";
+export type ThemeFilterSlug = ThemeSlug | "all";
 
 export interface Article {
 	id: string;
@@ -14,7 +15,7 @@ export interface Article {
 export interface Theme {
 	id: string;
 	name: string;
-	slug: string;
+	slug: ThemeFilterSlug;
 	description: string;
 }
 

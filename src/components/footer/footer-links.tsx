@@ -28,7 +28,7 @@ const mainColumns: FooterColumn[] = [
 	{
 		title: "Resources",
 		links: [
-			{ label: "Blog", href: "/blog" },
+			{ label: "Blog", href: "/blog/theme/all" },
 			{ label: "Help Center", href: "/help" },
 		],
 	},

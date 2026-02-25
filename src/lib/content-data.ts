@@ -1,4 +1,4 @@
-import type { Article, FAQ, Theme, ThemeSlug } from "@/types/blog";
+import type { Article, FAQ, Theme, ThemeFilterSlug } from "@/types/blog";
 
 export const themes: Theme[] = [
 	{
@@ -167,7 +167,7 @@ export const articles: Article[] = [
 	},
 ];
 
-export function themeNameFromSlug(slug: ThemeSlug): string {
+export function themeNameFromSlug(slug: ThemeFilterSlug): string {
 	const theme = themes.find((t) => t.slug === slug);
 	return theme?.name ?? slug;
 }
