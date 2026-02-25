@@ -1,5 +1,3 @@
-"use client";
-
 import { Container } from "@/components/layout/container";
 import { BlogNav } from "./blog-nav";
 import { HeroIllustration } from "./hero-illustration";

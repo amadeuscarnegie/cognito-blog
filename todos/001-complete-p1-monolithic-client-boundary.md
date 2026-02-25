@@ -1,5 +1,5 @@
 ---
-status: pending
+status: complete
 priority: p1
 issue_id: "001"
 tags: [code-review, architecture, performance, typescript]
@@ -89,6 +89,7 @@ _To be filled during triage_
 | Date | Action | Learnings |
 |------|--------|-----------|
 | 2026-02-25 | Created from code review | Flagged by 4/6 review agents as the highest-priority issue |
+| 2026-02-25 | Resolved — split into server layout + client island | Deleted `client.tsx`, created `blog-interactive.tsx` with narrow client boundary (BlogHero + ArticlesGrid only). Moved Nav, SectionDivider, FAQsSection, FooterCTA, Footer to server-rendered `page.tsx`. Removed `"use client"` from `blog-hero.tsx`. Removed `@radix-ui/react-dialog` dependency. Unimplemented routes now 404 via existing `not-found.tsx`. |
 
 ## Resources
 

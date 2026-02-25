@@ -5,7 +5,12 @@ import {
 	faqPageJsonLd,
 	breadcrumbJsonLd,
 } from "@/lib/json-ld";
-import { BlogThemeClient } from "./client";
+import { Nav } from "@/components/nav/nav";
+import { SectionDivider } from "@/components/layout/section-divider";
+import { FAQsSection } from "@/components/faqs/faqs-section";
+import { FooterCTA } from "@/components/footer-cta/footer-cta";
+import { Footer } from "@/components/footer/footer";
+import { BlogInteractive } from "./blog-interactive";
 import type { Metadata } from "next";
 import { BASE_URL } from "@/lib/constants";
 
@@ -75,7 +80,14 @@ export default async function BlogThemePage({
 		<>
 			<JsonLd data={breadcrumbJsonLd(breadcrumbItems)} />
 			<JsonLd data={faqPageJsonLd(faqs)} />
-			<BlogThemeClient initialTheme={initialTheme} allArticles={articles} />
+			<Nav />
+			<main>
+				<BlogInteractive initialTheme={initialTheme} allArticles={articles} />
+				<SectionDivider />
+				<FAQsSection />
+				<FooterCTA />
+			</main>
+			<Footer />
 		</>
 	);
 }
