@@ -11,8 +11,13 @@ interface TableOfContentsProps {
 
 export function TableOfContents({ headings }: TableOfContentsProps) {
 	const [isOpen, setIsOpen] = useState(true);
-	const [activeId, setActiveId] = useState<string>("");
+	const [activeId, setActiveId] = useState<string>(headings[0]?.id ?? "");
 	const visibleIds = useRef<Set<string>>(new Set());
+	const listRef = useRef<HTMLUListElement>(null);
+	const isScrollingRef = useRef(false);
+	const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+	const [hasOverflow, setHasOverflow] = useState(false);
+	const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
 
 	const updateActive = useCallback(() => {
 		const ids = visibleIds.current;
@@ -43,7 +48,9 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
 						visibleIds.current.delete(entry.target.id);
 					}
 				}
-				updateActive();
+				if (!isScrollingRef.current) {
+					updateActive();
+				}
 			},
 			{ rootMargin: "-80px 0px -60% 0px", threshold: 0 },
 		);
@@ -55,11 +62,60 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
 		return () => observer.disconnect();
 	}, [headings, updateActive]);
 
+	// Clean up scroll timeout on unmount
+	useEffect(() => {
+		return () => clearTimeout(scrollTimeoutRef.current);
+	}, []);
+
+	// Overflow detection + scroll-to-bottom tracking
+	useEffect(() => {
+		const list = listRef.current;
+		if (!list) return;
+
+		function check() {
+			if (!list) return;
+			setHasOverflow(list.scrollHeight > list.clientHeight);
+			const atBottom =
+				list.scrollHeight - list.scrollTop - list.clientHeight < 2;
+			setIsScrolledToBottom(atBottom);
+		}
+
+		check();
+		list.addEventListener("scroll", check, { passive: true });
+		const ro = new ResizeObserver(check);
+		ro.observe(list);
+
+		return () => {
+			list.removeEventListener("scroll", check);
+			ro.disconnect();
+		};
+	}, [isOpen]);
+
+	// Auto-scroll TOC to keep active item visible
+	useEffect(() => {
+		if (!activeId || !listRef.current) return;
+		const activeEl = listRef.current.querySelector(
+			`[data-heading-id="${activeId}"]`,
+		);
+		if (activeEl) {
+			activeEl.scrollIntoView({ block: "nearest", behavior: "smooth" });
+		}
+	}, [activeId]);
+
 	function handleClick(id: string) {
 		const el = document.getElementById(id);
-		if (el) {
-			el.scrollIntoView({ behavior: "smooth" });
-		}
+		if (!el) return;
+
+		// Immediately highlight the target
+		setActiveId(id);
+
+		// Suppress observer updates during smooth scroll
+		isScrollingRef.current = true;
+		clearTimeout(scrollTimeoutRef.current);
+		el.scrollIntoView({ behavior: "smooth" });
+		scrollTimeoutRef.current = setTimeout(() => {
+			isScrollingRef.current = false;
+		}, 800);
 	}
 
 	if (headings.length === 0) return null;
@@ -81,13 +137,20 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
 
 			{isOpen && (
 				<div className="relative mt-4">
-					<ul className="flex flex-col max-h-[360px] overflow-y-auto">
+					<ul
+						ref={listRef}
+						className="flex flex-col max-h-[360px] overflow-y-auto"
+					>
 						{headings.map((heading) => {
 							const isActive = activeId === heading.id;
 							const isH3 = heading.level === 3;
 
 							return (
-								<li key={heading.id} className="py-[3px]">
+								<li
+									key={heading.id}
+									data-heading-id={heading.id}
+									className="py-[3px]"
+								>
 									<button
 										type="button"
 										onClick={() => handleClick(heading.id)}
@@ -105,7 +168,9 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
 							);
 						})}
 					</ul>
-					<div className="absolute bottom-0 left-0 right-0 h-[75px] bg-gradient-to-t from-[#fcfbf8] to-transparent pointer-events-none" />
+					{hasOverflow && !isScrolledToBottom && (
+						<div className="absolute bottom-0 left-0 right-0 h-[75px] bg-gradient-to-t from-[#fcfbf8] to-transparent pointer-events-none" />
+					)}
 				</div>
 			)}
 		</nav>
