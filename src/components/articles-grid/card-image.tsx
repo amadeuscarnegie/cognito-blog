@@ -19,6 +19,7 @@ export function CardImage({ src, alt, illustrationUrl, bgColor, className }: Car
 					"aspect-square lg:aspect-video",
 					"flex-shrink-0",
 					"flex items-center justify-center",
+					"transition-transform duration-300 ease-out group-hover:scale-[1.03]",
 					className,
 				)}
 				style={{
@@ -35,7 +36,7 @@ export function CardImage({ src, alt, illustrationUrl, bgColor, className }: Car
 					alt={alt}
 					width={200}
 					height={200}
-					className="object-contain w-[60%] h-[60%] transition-transform duration-300 ease-out group-hover:scale-110"
+					className="object-contain w-[60%] h-[60%]"
 					sizes="(max-width: 1023px) 60px, 200px"
 				/>
 			</div>
@@ -49,6 +50,7 @@ export function CardImage({ src, alt, illustrationUrl, bgColor, className }: Car
 				"rounded-md lg:rounded-lg",
 				"aspect-square lg:aspect-video",
 				"flex-shrink-0",
+				"transition-transform duration-300 ease-out group-hover:scale-[1.03]",
 				className,
 			)}
 		>
@@ -56,7 +58,7 @@ export function CardImage({ src, alt, illustrationUrl, bgColor, className }: Car
 				src={src}
 				alt={alt}
 				fill
-				className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+				className="object-cover"
 				sizes="(max-width: 1023px) 100px, 33vw"
 			/>
 		</div>
