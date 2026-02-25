@@ -3,13 +3,11 @@
 import { useState, useCallback } from "react";
 import { NavLogo } from "./nav-logo";
 import { NavItem } from "./nav-item";
-import { NavMobileToggle } from "./nav-mobile-toggle";
 import { SubNav } from "./sub-nav";
 import { Button } from "@/components/ui/button";
 import { navItems } from "@/lib/nav-data";
 
 export function Nav() {
-	const [mobileOpen, setMobileOpen] = useState(false);
 	const [subNavOpen, setSubNavOpen] = useState(false);
 	const handleSubNavClose = useCallback(() => setSubNavOpen(false), []);
 
@@ -51,14 +49,6 @@ export function Nav() {
 				<div className="hidden lg:flex items-center gap-3">
 					<Button variant="ghost">Sign in</Button>
 					<Button variant="primary">Sign up</Button>
-				</div>
-
-				{/* Right - Mobile */}
-				<div className="lg:hidden">
-					<NavMobileToggle
-						isOpen={mobileOpen}
-						onToggle={() => setMobileOpen((prev) => !prev)}
-					/>
 				</div>
 			</div>
 		</header>
