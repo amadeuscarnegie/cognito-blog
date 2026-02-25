@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CardImage } from "./card-image";
 import { themeNameFromSlug } from "@/lib/content-data";
 import type { Article } from "@/types/blog";
@@ -8,7 +9,10 @@ interface ArticleCardProps {
 
 export function ArticleCard({ article }: ArticleCardProps) {
 	return (
-		<div className="flex flex-row lg:flex-col gap-3 lg:gap-0">
+		<Link
+			href={`/blog/${article.slug}`}
+			className="flex flex-row lg:flex-col gap-3 lg:gap-0 group"
+		>
 			<CardImage
 				src={article.thumbnailUrl}
 				illustrationUrl={article.illustrationUrl}
@@ -26,10 +30,10 @@ export function ArticleCard({ article }: ArticleCardProps) {
 						{article.readingTime} min
 					</span>
 				</div>
-				<h3 className="font-heading font-semibold text-[17px] lg:text-xl leading-[1.2] text-text-primary">
+				<h3 className="font-heading font-semibold text-[17px] lg:text-xl leading-[1.2] text-text-primary group-hover:text-border-brand transition-colors">
 					{article.title}
 				</h3>
 			</div>
-		</div>
+		</Link>
 	);
 }
