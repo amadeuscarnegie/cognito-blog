@@ -1,4 +1,4 @@
-import { Nunito, Lora } from "next/font/google";
+import { Nunito, Petrona } from "next/font/google";
 
 export const nunito = Nunito({
 	subsets: ["latin"],
@@ -7,7 +7,7 @@ export const nunito = Nunito({
 	display: "swap",
 });
 
-export const lora = Lora({
+export const petrona = Petrona({
 	subsets: ["latin"],
 	weight: ["400", "500", "600", "700"],
 	variable: "--font-heading",

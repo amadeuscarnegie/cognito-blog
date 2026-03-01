@@ -7,13 +7,26 @@ import { cn } from "@/lib/cn";
 interface AccordionProps {
 	items: { id: string; question: string; answer: string }[];
 	className?: string;
+	value?: string;
+	onValueChange?: (value: string) => void;
 }
 
-export function Accordion({ items, className }: AccordionProps) {
+export function Accordion({
+	items,
+	className,
+	value,
+	onValueChange,
+}: AccordionProps) {
+	const controlledProps =
+		value !== undefined
+			? { value, onValueChange: onValueChange ?? (() => {}) }
+			: {};
+
 	return (
 		<AccordionPrimitive.Root
 			type="single"
 			collapsible
+			{...controlledProps}
 			className={cn(
 				"border-[1.5px] border-border-quaternary rounded-md overflow-hidden",
 				className,
@@ -23,6 +36,7 @@ export function Accordion({ items, className }: AccordionProps) {
 				<AccordionPrimitive.Item
 					key={item.id}
 					value={item.id}
+					id={item.id}
 					className={cn(
 						"px-6 py-6",
 						index < items.length - 1 && "border-b-[1.5px] border-border-quaternary",
@@ -38,7 +52,7 @@ export function Accordion({ items, className }: AccordionProps) {
 						data-accordion-content=""
 						className="overflow-hidden"
 					>
-						<p className="pt-4 font-body font-medium text-base leading-[1.6] text-text-primary">
+						<p className="pt-4 font-body font-medium text-base leading-[1.6] text-text-secondary">
 							{item.answer}
 						</p>
 					</AccordionPrimitive.Content>

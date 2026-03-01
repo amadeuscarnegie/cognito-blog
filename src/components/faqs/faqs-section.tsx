@@ -29,7 +29,7 @@ export function FAQsSection() {
 							making the most of your revision.
 						</SectionDescription>
 						<div className="flex flex-row items-center gap-5 pt-2">
-							<Button variant="secondary">Visit our FAQ</Button>
+							<a href="/faq"><Button variant="secondary">Visit our FAQ</Button></a>
 							<Button variant="ghost">Contact us</Button>
 						</div>
 					</div>

@@ -1,6 +1,13 @@
 "use client";
 
-import { useState, useMemo, useDeferredValue, useEffect, useRef } from "react";
+import {
+	useState,
+	useMemo,
+	useDeferredValue,
+	useEffect,
+	useRef,
+	useCallback,
+} from "react";
 import { useRouter } from "next/navigation";
 import Fuse from "fuse.js";
 import { Search, X, Mail } from "lucide-react";
@@ -29,6 +36,11 @@ export function FAQInteractive({
 	const deferredSearch = useDeferredValue(search);
 	const isFirstRender = useRef(true);
 	const lastLoggedQuery = useRef("");
+	const dropdownRef = useRef<HTMLDivElement>(null);
+	const inputRef = useRef<HTMLInputElement>(null);
+
+	// Controlled accordion state — which item is open (empty string = none)
+	const [openItemId, setOpenItemId] = useState("");
 
 	// Build flat corpus for Fuse.js
 	const corpus = useMemo<FlatFAQ[]>(
@@ -43,7 +55,7 @@ export function FAQInteractive({
 		[categories],
 	);
 
-	// Build Fuse index
+	// Build Fuse index — threshold tightened from 0.4 → 0.3
 	const fuse = useMemo(
 		() =>
 			new Fuse(corpus, {
@@ -65,33 +77,93 @@ export function FAQInteractive({
 		[corpus],
 	);
 
-	// Filter: Fuse.js fuzzy + direct category substring match, deduped
-	const filtered = useMemo(() => {
+	// Ranked search results for the dropdown
+	const searchResults = useMemo(() => {
 		const query = deferredSearch.trim();
-		if (!query) return categories;
+		if (!query) return [];
 
-		// Fuzzy per-item matches via Fuse.js
+		// Fuzzy per-item matches via Fuse.js (already ranked by score)
 		const fuseResults = fuse.search(normalize(query));
-		const matchedIds = new Set(fuseResults.map((r) => r.item.id));
+		const seen = new Set<string>();
+		const results: FlatFAQ[] = [];
 
-		// Direct category name substring match — surfaces all items in a matching category
+		// Add Fuse results first (ranked)
+		for (const r of fuseResults) {
+			if (!seen.has(r.item.id)) {
+				seen.add(r.item.id);
+				results.push(r.item);
+			}
+		}
+
+		// Direct category name substring match — append items not already matched
 		const lowerQuery = query.toLowerCase();
 		for (const cat of categories) {
 			if (cat.name.toLowerCase().includes(lowerQuery)) {
 				for (const q of cat.questions) {
-					matchedIds.add(q.id);
+					if (!seen.has(q.id)) {
+						seen.add(q.id);
+						results.push({
+							...q,
+							categoryId: cat.id,
+							categoryName: cat.name,
+						});
+					}
 				}
 			}
 		}
 
-		// Rebuild category structure with only matched items
-		return categories
-			.map((cat) => ({
-				...cat,
-				questions: cat.questions.filter((q) => matchedIds.has(q.id)),
-			}))
-			.filter((cat) => cat.questions.length > 0);
+		return results.slice(0, 8);
 	}, [deferredSearch, categories, fuse]);
+
+	const isSearching = search.trim().length > 0;
+	const totalQuestions = categories.reduce(
+		(sum, cat) => sum + cat.questions.length,
+		0,
+	);
+
+	// Handle clicking a search result
+	const handleResultClick = useCallback((item: FlatFAQ) => {
+		setSearch("");
+		setOpenItemId(item.id);
+
+		// Wait for accordion to open, then scroll
+		requestAnimationFrame(() => {
+			const element = document.getElementById(item.id);
+			if (element) {
+				element.scrollIntoView({ behavior: "smooth", block: "center" });
+			}
+		});
+	}, []);
+
+	// Close dropdown on Escape and click outside
+	useEffect(() => {
+		if (!isSearching) return;
+
+		function handleKeyDown(e: KeyboardEvent) {
+			if (e.key === "Escape") {
+				setSearch("");
+				inputRef.current?.blur();
+			}
+		}
+
+		function handleClickOutside(e: MouseEvent) {
+			if (
+				dropdownRef.current &&
+				!dropdownRef.current.contains(e.target as Node) &&
+				inputRef.current &&
+				!inputRef.current.contains(e.target as Node)
+			) {
+				setSearch("");
+			}
+		}
+
+		document.addEventListener("keydown", handleKeyDown);
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => {
+			document.removeEventListener("keydown", handleKeyDown);
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, [isSearching]);
 
 	// Sync deferred search to URL
 	useEffect(() => {
@@ -112,29 +184,16 @@ export function FAQInteractive({
 		if (!query || query === lastLoggedQuery.current) return;
 
 		lastLoggedQuery.current = query;
-		const resultCount = filtered.reduce(
-			(sum, cat) => sum + cat.questions.length,
-			0,
-		);
-		logFaqSearch(query, resultCount);
-	}, [deferredSearch, filtered]);
-
-	const totalResults = filtered.reduce(
-		(sum, cat) => sum + cat.questions.length,
-		0,
-	);
-	const totalQuestions = categories.reduce(
-		(sum, cat) => sum + cat.questions.length,
-		0,
-	);
-	const isSearching = search.trim().length > 0;
+		logFaqSearch(query, searchResults.length);
+	}, [deferredSearch, searchResults.length]);
 
 	return (
 		<>
-			{/* Search */}
+			{/* Search with dropdown */}
 			<div className="relative max-w-[560px] mx-auto">
 				<Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-text-tertiary" />
 				<input
+					ref={inputRef}
 					type="text"
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
@@ -152,63 +211,89 @@ export function FAQInteractive({
 						<X className="h-5 w-5" />
 					</button>
 				)}
+
+				{/* Search results dropdown */}
+				{isSearching && (
+					<div
+						ref={dropdownRef}
+						className="absolute top-full left-0 right-0 mt-2 bg-white border-[1.5px] border-border-quaternary rounded-md shadow-lg z-50 overflow-hidden"
+					>
+						{searchResults.length > 0 ? (
+							<>
+								<div className="px-4 py-2.5 border-b border-border-quaternary">
+									<p className="font-body text-sm text-text-secondary">
+										Showing {searchResults.length} of {totalQuestions} questions
+									</p>
+								</div>
+								<ul className="max-h-[400px] overflow-y-auto">
+									{searchResults.map((item) => (
+										<li key={item.id}>
+											<button
+												type="button"
+												onClick={() => handleResultClick(item)}
+												className="w-full text-left px-4 py-3 hover:bg-bg-secondary transition-colors cursor-pointer"
+											>
+												<span className="block font-heading font-semibold text-base text-text-primary leading-snug">
+													{item.question}
+												</span>
+												<span className="block font-body text-sm text-text-tertiary mt-0.5">
+													{item.categoryName}
+												</span>
+											</button>
+										</li>
+									))}
+								</ul>
+							</>
+						) : (
+							<div className="px-4 py-6 text-center">
+								<p className="font-body text-sm text-text-secondary mb-3">
+									No results found. Try a different search term.
+								</p>
+								<a href="mailto:hello@cognitoedu.org">
+									<Button
+										variant="secondary"
+										icon={<Mail className="h-4 w-4" />}
+									>
+										hello@cognitoedu.org
+									</Button>
+								</a>
+							</div>
+						)}
+					</div>
+				)}
 			</div>
 
-			{/* Search results indicator */}
-			{isSearching && (
-				<p className="text-center font-body text-sm text-text-secondary mt-4">
-					{totalResults === 0
-						? "No results found. Try a different search term."
-						: `Showing ${totalResults} of ${totalQuestions} questions`}
-				</p>
-			)}
-
-			{/* FAQ Categories */}
+			{/* FAQ Categories — always show all */}
 			<div className="mt-10 lg:mt-14 flex flex-col gap-10 lg:gap-14">
-				{filtered.map((category) => (
+				{categories.map((category) => (
 					<section key={category.id}>
 						<h2 className="font-heading font-bold text-xl lg:text-2xl text-text-primary mb-4">
 							{category.name}
 						</h2>
-						<Accordion items={category.questions} />
+						<Accordion
+							items={category.questions}
+							value={openItemId}
+							onValueChange={setOpenItemId}
+						/>
 					</section>
 				))}
 			</div>
 
-			{/* No results — show contact */}
-			{isSearching && totalResults === 0 && (
-				<div className="text-center mt-10 p-8 rounded-md border-[1.5px] border-border-quaternary">
-					<p className="font-heading font-semibold text-lg text-text-primary mb-2">
-						Can&apos;t find what you&apos;re looking for?
-					</p>
-					<p className="font-body text-base text-text-secondary mb-4">
-						Our team is happy to help with any questions.
-					</p>
-					<a href="mailto:hello@cognitoedu.org">
-						<Button variant="secondary" icon={<Mail className="h-4 w-4" />}>
-							hello@cognitoedu.org
-						</Button>
-					</a>
-				</div>
-			)}
-
-			{/* Contact CTA — always show when not searching */}
-			{!isSearching && (
-				<div className="text-center mt-14 lg:mt-20 pt-10 border-t border-border-quaternary">
-					<p className="font-heading font-bold text-xl lg:text-2xl text-text-primary mb-2">
-						Still have questions?
-					</p>
-					<p className="font-body text-base text-text-secondary mb-5">
-						We&apos;re here to help. Reach out and we&apos;ll get back to you as
-						soon as we can.
-					</p>
-					<a href="mailto:hello@cognitoedu.org">
-						<Button variant="secondary" icon={<Mail className="h-4 w-4" />}>
-							Contact us
-						</Button>
-					</a>
-				</div>
-			)}
+			{/* Contact CTA — always visible */}
+			<div className="text-center mt-14 lg:mt-20 pt-10 border-t border-border-quaternary">
+				<p className="font-heading font-bold text-xl lg:text-2xl text-text-primary mb-2">
+					Still have questions?
+				</p>
+				<p className="font-body text-base text-text-secondary mb-5">
+					We&apos;re here to help. Reach out and we&apos;ll get back to you as
+					soon as we can.
+				</p>
+				<a href="mailto:hello@cognitoedu.org">
+					<Button variant="secondary" icon={<Mail className="h-4 w-4" />}>
+						Contact us
+					</Button>
+				</a>
+			</div>
 		</>
 	);
 }
