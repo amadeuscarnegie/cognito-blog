@@ -23,6 +23,7 @@ export interface FAQ {
 	id: string;
 	question: string;
 	answer: string;
+	keywords?: string[];
 }
 
 export interface FAQCategory {

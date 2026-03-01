@@ -1,32 +1,123 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useDeferredValue, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import Fuse from "fuse.js";
 import { Search, X, Mail } from "lucide-react";
 import { Accordion } from "@/components/ui/accordion/accordion";
-import type { FAQCategory } from "@/types/blog";
+import { Button } from "@/components/ui/button";
+import { logFaqSearch } from "@/lib/analytics";
+import type { FAQ, FAQCategory } from "@/types/blog";
 
 interface FAQInteractiveProps {
 	categories: FAQCategory[];
+	initialSearchQuery?: string;
 }
 
-export function FAQInteractive({ categories }: FAQInteractiveProps) {
-	const [search, setSearch] = useState("");
+type FlatFAQ = FAQ & { categoryId: string; categoryName: string };
 
+function normalize(str: string): string {
+	return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+export function FAQInteractive({
+	categories,
+	initialSearchQuery,
+}: FAQInteractiveProps) {
+	const router = useRouter();
+	const [search, setSearch] = useState(initialSearchQuery ?? "");
+	const deferredSearch = useDeferredValue(search);
+	const isFirstRender = useRef(true);
+	const lastLoggedQuery = useRef("");
+
+	// Build flat corpus for Fuse.js
+	const corpus = useMemo<FlatFAQ[]>(
+		() =>
+			categories.flatMap((cat) =>
+				cat.questions.map((q) => ({
+					...q,
+					categoryId: cat.id,
+					categoryName: cat.name,
+				})),
+			),
+		[categories],
+	);
+
+	// Build Fuse index
+	const fuse = useMemo(
+		() =>
+			new Fuse(corpus, {
+				keys: [
+					{ name: "question", weight: 0.4 },
+					{ name: "keywords", weight: 0.3 },
+					{ name: "answer", weight: 0.2 },
+					{ name: "categoryName", weight: 0.1 },
+				],
+				threshold: 0.4,
+				ignoreLocation: true,
+				getFn: (obj, path) => {
+					const value = Fuse.config.getFn(obj, path);
+					if (Array.isArray(value)) return value.map((v) => normalize(String(v)));
+					if (typeof value === "string") return normalize(value);
+					return value;
+				},
+			}),
+		[corpus],
+	);
+
+	// Filter: Fuse.js fuzzy + direct category substring match, deduped
 	const filtered = useMemo(() => {
-		const query = search.toLowerCase().trim();
+		const query = deferredSearch.trim();
 		if (!query) return categories;
 
+		// Fuzzy per-item matches via Fuse.js
+		const fuseResults = fuse.search(normalize(query));
+		const matchedIds = new Set(fuseResults.map((r) => r.item.id));
+
+		// Direct category name substring match — surfaces all items in a matching category
+		const lowerQuery = query.toLowerCase();
+		for (const cat of categories) {
+			if (cat.name.toLowerCase().includes(lowerQuery)) {
+				for (const q of cat.questions) {
+					matchedIds.add(q.id);
+				}
+			}
+		}
+
+		// Rebuild category structure with only matched items
 		return categories
 			.map((cat) => ({
 				...cat,
-				questions: cat.questions.filter(
-					(q) =>
-						q.question.toLowerCase().includes(query) ||
-						q.answer.toLowerCase().includes(query),
-				),
+				questions: cat.questions.filter((q) => matchedIds.has(q.id)),
 			}))
 			.filter((cat) => cat.questions.length > 0);
-	}, [search, categories]);
+	}, [deferredSearch, categories, fuse]);
+
+	// Sync deferred search to URL
+	useEffect(() => {
+		if (isFirstRender.current) {
+			isFirstRender.current = false;
+			return;
+		}
+
+		const url = deferredSearch
+			? `/faq?q=${encodeURIComponent(deferredSearch)}`
+			: "/faq";
+		router.replace(url, { scroll: false });
+	}, [deferredSearch, router]);
+
+	// Analytics logging
+	useEffect(() => {
+		const query = deferredSearch.trim();
+		if (!query || query === lastLoggedQuery.current) return;
+
+		lastLoggedQuery.current = query;
+		const resultCount = filtered.reduce(
+			(sum, cat) => sum + cat.questions.length,
+			0,
+		);
+		logFaqSearch(query, resultCount);
+	}, [deferredSearch, filtered]);
 
 	const totalResults = filtered.reduce(
 		(sum, cat) => sum + cat.questions.length,
@@ -93,12 +184,10 @@ export function FAQInteractive({ categories }: FAQInteractiveProps) {
 					<p className="font-body text-base text-text-secondary mb-4">
 						Our team is happy to help with any questions.
 					</p>
-					<a
-						href="mailto:hello@cognitoedu.org"
-						className="inline-flex items-center gap-2 font-body font-bold text-sm text-text-primary border-[1.5px] border-border-primary rounded-sm px-5 py-3 hover:bg-bg-subtle transition-colors"
-					>
-						<Mail className="h-4 w-4" />
-						hello@cognitoedu.org
+					<a href="mailto:hello@cognitoedu.org">
+						<Button variant="secondary" icon={<Mail className="h-4 w-4" />}>
+							hello@cognitoedu.org
+						</Button>
 					</a>
 				</div>
 			)}
@@ -113,12 +202,10 @@ export function FAQInteractive({ categories }: FAQInteractiveProps) {
 						We&apos;re here to help. Reach out and we&apos;ll get back to you as
 						soon as we can.
 					</p>
-					<a
-						href="mailto:hello@cognitoedu.org"
-						className="inline-flex items-center gap-2 font-body font-bold text-sm text-text-primary border-[1.5px] border-border-primary rounded-sm px-5 py-3 hover:bg-bg-subtle transition-colors"
-					>
-						<Mail className="h-4 w-4" />
-						Contact us
+					<a href="mailto:hello@cognitoedu.org">
+						<Button variant="secondary" icon={<Mail className="h-4 w-4" />}>
+							Contact us
+						</Button>
 					</a>
 				</div>
 			)}

@@ -39,7 +39,15 @@ function faqPageJsonLd() {
 	};
 }
 
-export default function FAQPage() {
+export default async function FAQPage({
+	searchParams,
+}: {
+	searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+	const resolvedSearchParams = await searchParams;
+	const initialSearchQuery =
+		typeof resolvedSearchParams.q === "string" ? resolvedSearchParams.q : "";
+
 	const breadcrumbItems = [
 		{ name: "Home", url: BASE_URL },
 		{ name: "FAQ", url: `${BASE_URL}/faq` },
@@ -55,7 +63,7 @@ export default function FAQPage() {
 					<Container>
 						{/* Hero */}
 						<div className="text-center max-w-[640px] mx-auto mb-10 lg:mb-14">
-							<h1 className="font-heading font-bold text-3xl lg:text-[40px] leading-[1.15] text-text-primary mb-3">
+							<h1 className="font-heading font-semibold text-[26px] lg:text-[40px] leading-[1.15] tracking-[-0.01em] text-text-primary mb-3">
 								Frequently Asked Questions
 							</h1>
 							<p className="font-body text-base lg:text-lg text-text-secondary leading-relaxed">
@@ -71,7 +79,10 @@ export default function FAQPage() {
 						</div>
 
 						{/* Interactive FAQ (search + accordion sections + contact CTA) */}
-						<FAQInteractive categories={faqCategories} />
+						<FAQInteractive
+							categories={faqCategories}
+							initialSearchQuery={initialSearchQuery}
+						/>
 					</Container>
 				</section>
 			</main>
