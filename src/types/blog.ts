@@ -24,3 +24,9 @@ export interface FAQ {
 	question: string;
 	answer: string;
 }
+
+export interface FAQCategory {
+	id: string;
+	name: string;
+	questions: FAQ[];
+}
